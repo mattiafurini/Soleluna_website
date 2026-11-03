@@ -1,8 +1,17 @@
-import Link from "next/link";
+"use client";
+
 import { SALON_INFO } from "@/data/salon";
 import { MessageCircle, ShieldCheck, Heart, Leaf, Award, Phone } from "lucide-react";
 
 export function Hero() {
+  const scrollToTrattamenti = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("trattamenti");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-[#faf8f5] via-[#f7f2ec] to-[#faf8f5]">
       {/* Decorative ambient background glows */}
@@ -21,37 +30,44 @@ export function Hero() {
           </p>
 
           {/* Call to actions */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-            <a
-              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna! ✨ Vorrei verificare la disponibilità per un appuntamento in salone.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white font-medium text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
-            >
-              <MessageCircle className="w-4 h-4 text-white" />
-              Prenota su WhatsApp
-            </a>
+          <div className="pt-2 flex flex-col items-center justify-center gap-4">
+            {/* Direct contact buttons - Identical dimensions for perfect symmetrical centering */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
+              <a
+                href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna! ✨ Vorrei verificare la disponibilità per un appuntamento in salone.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-[260px] h-12 inline-flex items-center justify-center gap-2.5 px-4 rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white font-medium text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 text-center"
+              >
+                <MessageCircle className="w-4 h-4 text-white shrink-0" />
+                <span>Prenota su WhatsApp</span>
+              </a>
 
-            <a
-              href={`tel:${SALON_INFO.phone.replace(/\s+/g, '')}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white hover:bg-[#faf6f1] text-[#2b2523] border border-[#d8c8b8] font-medium text-sm shadow-xs hover:shadow transition-all"
-            >
-              <Phone className="w-4 h-4 text-[#b38b59]" />
-              Chiama: {SALON_INFO.phone}
-            </a>
+              <a
+                href={`tel:${SALON_INFO.phone.replace(/\s+/g, '')}`}
+                className="w-full sm:w-[260px] h-12 inline-flex items-center justify-center gap-2.5 px-4 rounded-full bg-white hover:bg-[#faf6f1] text-[#2b2523] border border-[#d8c8b8] font-medium text-sm shadow-xs hover:shadow transition-all text-center"
+              >
+                <Phone className="w-4 h-4 text-[#b38b59] shrink-0" />
+                <span>Chiama: {SALON_INFO.phone}</span>
+              </a>
+            </div>
 
-            <Link
-              href="#trattamenti"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-[#73655c] hover:text-[#2b2523] transition-colors"
-            >
-              Tutti i Trattamenti ↓
-            </Link>
+            {/* Secondary navigation link */}
+            <div>
+              <a
+                href="#trattamenti"
+                onClick={scrollToTrattamenti}
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-2 text-xs sm:text-sm font-medium text-[#73655c] hover:text-[#2b2523] transition-colors cursor-pointer"
+              >
+                <span>Tutti i Trattamenti</span>
+                <span>↓</span>
+              </a>
+            </div>
           </div>
 
           {/* Logistic note */}
-          <div className="pt-2 text-xs text-[#82766d] flex items-center justify-center gap-2">
+          <div className="pt-2 text-xs text-[#82766d] flex flex-col items-center justify-center gap-1">
             <span>📍 Via Chiesa 114/A, San Martino (FE)</span>
-            <span>•</span>
             <span className="text-[#3b7a57] font-medium">Parcheggio gratuito di fronte</span>
           </div>
         </div>

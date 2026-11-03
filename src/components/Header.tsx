@@ -8,6 +8,15 @@ import { Phone, MapPin, Clock, Menu, X, Sparkles, MessageCircle } from "lucide-r
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-[#faf8f5]/95 backdrop-blur-md border-b border-[#ebdcd0] transition-all">
       {/* Top bar info */}
@@ -56,21 +65,41 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#4a403a]">
-          <Link href="#chi-siamo" className="hover:text-[#b38b59] transition-colors">
+          <a
+            href="#chi-siamo"
+            onClick={(e) => handleNavClick(e, "chi-siamo")}
+            className="hover:text-[#b38b59] transition-colors cursor-pointer"
+          >
             Chi Siamo
-          </Link>
-          <Link href="#trattamenti" className="hover:text-[#b38b59] transition-colors">
+          </a>
+          <a
+            href="#trattamenti"
+            onClick={(e) => handleNavClick(e, "trattamenti")}
+            className="hover:text-[#b38b59] transition-colors cursor-pointer"
+          >
             Trattamenti
-          </Link>
-          <Link href="#perche-noi" className="hover:text-[#b38b59] transition-colors">
+          </a>
+          <a
+            href="#perche-noi"
+            onClick={(e) => handleNavClick(e, "perche-noi")}
+            className="hover:text-[#b38b59] transition-colors cursor-pointer"
+          >
             Perché Noi
-          </Link>
-          <Link href="#recensioni" className="hover:text-[#b38b59] transition-colors">
+          </a>
+          <a
+            href="#recensioni"
+            onClick={(e) => handleNavClick(e, "recensioni")}
+            className="hover:text-[#b38b59] transition-colors cursor-pointer"
+          >
             Recensioni
-          </Link>
-          <Link href="#dove-siamo" className="hover:text-[#b38b59] transition-colors">
+          </a>
+          <a
+            href="#dove-siamo"
+            onClick={(e) => handleNavClick(e, "dove-siamo")}
+            className="hover:text-[#b38b59] transition-colors cursor-pointer"
+          >
             Dove Siamo
-          </Link>
+          </a>
         </nav>
 
         {/* Action Buttons */}
@@ -100,41 +129,41 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[#ebdcd0] bg-[#faf8f5] px-6 py-6 space-y-4 shadow-xl">
           <nav className="flex flex-col space-y-3 text-base font-medium text-[#4a403a]">
-            <Link
+            <a
               href="#chi-siamo"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59]"
+              onClick={(e) => handleNavClick(e, "chi-siamo")}
+              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
             >
               Chi Siamo
-            </Link>
-            <Link
+            </a>
+            <a
               href="#trattamenti"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59]"
+              onClick={(e) => handleNavClick(e, "trattamenti")}
+              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
             >
               Trattamenti & Servizi
-            </Link>
-            <Link
+            </a>
+            <a
               href="#perche-noi"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59]"
+              onClick={(e) => handleNavClick(e, "perche-noi")}
+              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
             >
               Perché Noi
-            </Link>
-            <Link
+            </a>
+            <a
               href="#recensioni"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59]"
+              onClick={(e) => handleNavClick(e, "recensioni")}
+              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
             >
               Recensioni Clienti
-            </Link>
-            <Link
+            </a>
+            <a
               href="#dove-siamo"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59]"
+              onClick={(e) => handleNavClick(e, "dove-siamo")}
+              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
             >
               Orari & Posizione
-            </Link>
+            </a>
           </nav>
 
           <div className="pt-2 flex flex-col gap-2.5">
