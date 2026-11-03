@@ -2,18 +2,25 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { SALON_INFO } from "@/data/salon";
 import { Phone, MapPin, Clock, Menu, X, Sparkles, MessageCircle } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (pathname === "/") {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push(`/#${id}`);
     }
   };
 
@@ -72,13 +79,14 @@ export function Header() {
           >
             Chi Siamo
           </a>
-          <a
-            href="#trattamenti"
-            onClick={(e) => handleNavClick(e, "trattamenti")}
-            className="hover:text-[#b38b59] transition-colors cursor-pointer"
+          <Link
+            href="/trattamenti"
+            className={`transition-colors cursor-pointer ${
+              pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
+            }`}
           >
-            Trattamenti
-          </a>
+            Trattamenti & Listino
+          </Link>
           <a
             href="#perche-noi"
             onClick={(e) => handleNavClick(e, "perche-noi")}
@@ -136,13 +144,15 @@ export function Header() {
             >
               Chi Siamo
             </a>
-            <a
-              href="#trattamenti"
-              onClick={(e) => handleNavClick(e, "trattamenti")}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
+            <Link
+              href="/trattamenti"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`py-1 border-b border-[#f0e4d8] cursor-pointer ${
+                pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
+              }`}
             >
-              Trattamenti & Servizi
-            </a>
+              Trattamenti & Listino
+            </Link>
             <a
               href="#perche-noi"
               onClick={(e) => handleNavClick(e, "perche-noi")}

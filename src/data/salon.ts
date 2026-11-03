@@ -80,6 +80,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Trattamento Anti-Age & Effetto Glow",
     description: "Trattamento intensivo con sieri all'acido ialuronico puro e vitamine antiossidanti. Distende i tratti e dona luminosità immediata.",
     duration: "50 min",
+    popular: true,
   },
   {
     id: "pelli-sensibili",
