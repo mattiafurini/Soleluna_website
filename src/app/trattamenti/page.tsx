@@ -6,7 +6,7 @@ import { WhatsAppBookingBanner } from "@/components/WhatsAppBookingBanner";
 import { TrattamentiContent } from "./TrattamentiContent";
 
 export const metadata: Metadata = {
-  title: "Listino Trattamenti & Servizi | SoleLuna Centro Estetico Ferrara",
+  title: "Trattamenti & Servizi | SoleLuna Centro Estetico Ferrara",
   description:
     "Scopri il listino completo dei trattamenti viso, corpo, massaggi relax, epilazione e semipermanente del Centro Estetico SoleLuna a San Martino, Ferrara. Prenota su WhatsApp.",
 };

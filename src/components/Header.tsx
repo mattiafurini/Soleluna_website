@@ -81,11 +81,10 @@ export function Header() {
           </a>
           <Link
             href="/trattamenti"
-            className={`transition-colors cursor-pointer ${
-              pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
-            }`}
+            className={`transition-colors cursor-pointer ${pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
+              }`}
           >
-            Trattamenti & Listino
+            Trattamenti
           </Link>
           <a
             href="#perche-noi"
@@ -147,11 +146,10 @@ export function Header() {
             <Link
               href="/trattamenti"
               onClick={() => setMobileMenuOpen(false)}
-              className={`py-1 border-b border-[#f0e4d8] cursor-pointer ${
-                pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
-              }`}
+              className={`py-1 border-b border-[#f0e4d8] cursor-pointer ${pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
+                }`}
             >
-              Trattamenti & Listino
+              Trattamenti
             </Link>
             <a
               href="#perche-noi"

@@ -59,7 +59,7 @@ export function Hero() {
                 onClick={scrollToTrattamenti}
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-2 text-xs sm:text-sm font-medium text-[#73655c] hover:text-[#2b2523] transition-colors cursor-pointer"
               >
-                <span>Tutti i Trattamenti</span>
+                <span>Trattamenti</span>
                 <span>↓</span>
               </a>
             </div>
@@ -68,7 +68,7 @@ export function Hero() {
           {/* Logistic note */}
           <div className="pt-2 text-xs text-[#82766d] flex flex-col items-center justify-center gap-1">
             <span>📍 Via Chiesa 114/A, San Martino (FE)</span>
-            <span className="text-[#3b7a57] font-medium">Parcheggio gratuito di fronte</span>
+            <span className="text-[#3b7a57] font-medium">Parcheggio gratuito</span>
           </div>
         </div>
 
