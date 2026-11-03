@@ -56,7 +56,7 @@ export function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {filteredServices.map((service: ServiceItem) => {
             const whatsappText = `Ciao SoleLuna! ✨ Vorrei informazioni e disponibilità per il trattamento: "${service.name}".`;
             const whatsappUrl = `https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
@@ -64,20 +64,19 @@ export function ServicesSection() {
             return (
               <div
                 key={service.id}
-                className="relative bg-white rounded-2xl p-6 border border-[#ece0d4] shadow-xs hover:shadow-md transition-all flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#ede2d6] shadow-2xs hover:shadow-sm transition-all flex flex-col justify-between group"
               >
-                {service.popular && (
-                  <div className="absolute -top-3 right-6 bg-[#9c7545] text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                    <Sparkles className="w-3 h-3 text-amber-200" />
-                    Più Richiesto
-                  </div>
-                )}
-
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-serif text-lg font-semibold text-[#2b2523] leading-snug group-hover:text-[#9c7545] transition-colors">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <h3 className="font-serif text-base sm:text-lg font-semibold text-[#2b2523] leading-snug group-hover:text-[#9c7545] transition-colors">
                       {service.name}
                     </h3>
+                    {service.popular && (
+                      <span className="shrink-0 inline-flex items-center gap-1 text-[10px] font-semibold text-[#8f6636] bg-[#faf4ec] border border-[#ebdccf] px-2 py-0.5 rounded-full">
+                        <Sparkles className="w-2.5 h-2.5 text-[#b38b59]" />
+                        Top
+                      </span>
+                    )}
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#665a52] leading-relaxed">
@@ -85,25 +84,20 @@ export function ServicesSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#f2e7dc] space-y-4">
-                  <div className="flex items-center justify-between text-xs font-medium text-[#7a6d64]">
-                    <span className="flex items-center gap-1.5 bg-[#faf5f0] px-2.5 py-1 rounded-md border border-[#ede1d3]">
-                      <Clock className="w-3.5 h-3.5 text-[#9c7545]" />
-                      {service.duration}
-                    </span>
-                    <span className="text-[11px] font-medium text-[#128C7E] bg-[#eef7f3] px-2.5 py-1 rounded-md border border-[#d2edd7]">
-                      Info & Prezzo via WhatsApp
-                    </span>
-                  </div>
+                <div className="mt-3.5 pt-3 border-t border-[#f2e7dc] flex items-center justify-between gap-3">
+                  <span className="flex items-center gap-1.5 text-xs text-[#7a6d64] font-medium">
+                    <Clock className="w-3.5 h-3.5 text-[#9c7545]" />
+                    <span>{service.duration}</span>
+                  </span>
 
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 px-4 text-center text-xs font-semibold rounded-xl bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-xs transition-colors flex items-center justify-center gap-2"
+                    className="inline-flex items-center gap-1.5 py-1.5 px-3.5 text-xs font-semibold rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-2xs transition-colors shrink-0"
                   >
-                    <MessageCircle className="w-4 h-4 text-white" />
-                    Richiedi Info & Prenota
+                    <MessageCircle className="w-3.5 h-3.5 text-white" />
+                    <span>Info & Prenota</span>
                   </a>
                 </div>
               </div>
