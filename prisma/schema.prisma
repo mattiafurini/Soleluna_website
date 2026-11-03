@@ -1,0 +1,65 @@
+// Prisma Schema per Centro Estetico SoleLuna
+// Database: PostgreSQL standard
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum BookingStatus {
+  PENDING    // In attesa di verifica con l'agenda
+  CONFIRMED  // Confermato e comunicato alla cliente
+  DECLINED   // Non disponibile / annullato
+  COMPLETED  // Trattamento eseguito
+}
+
+model Service {
+  id              String           @id @default(cuid())
+  name            String
+  slug            String           @unique
+  category        String           // viso, corpo, massaggi, epilazione, mani-piedi
+  description     String
+  durationMinutes Int
+  price           String           // es. "da 50 €"
+  isPopular       Boolean          @default(false)
+  isActive        Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  bookings        BookingRequest[]
+
+  @@map("services")
+}
+
+model BookingRequest {
+  id            String        @id @default(cuid())
+  clientName    String
+  clientPhone   String
+  clientEmail   String?
+  serviceName   String        // Nome del servizio al momento della richiesta
+  serviceId     String?
+  service       Service?      @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  preferredDate DateTime      // Data indicata
+  preferredSlot String        // es. "mattina", "pomeriggio", o orario specifico
+  notes         String?
+  status        BookingStatus @default(PENDING)
+  adminNotes    String?       // Note interne dell'estetista (es. "spostato alle 17:00")
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@map("booking_requests")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+
+  @@map("admin_users")
+}
+
