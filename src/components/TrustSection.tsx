@@ -70,8 +70,7 @@ export function TrustSection() {
                 <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="font-semibold text-sm text-[#2b2523]">su Google Maps</span>
-            <span className="text-xs text-[#8c7e75] hidden sm:inline">• 100% recensioni verificate</span>
+            <span className="text-xs text-[#8c7e75] hidden sm:inline">100% recensioni verificate</span>
             <ExternalLink className="w-3.5 h-3.5 text-[#9c7545] group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
