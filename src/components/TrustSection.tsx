@@ -16,17 +16,6 @@ export function TrustSection() {
           <p className="text-sm sm:text-base text-[#61554c]">
             La serenità e i risultati delle nostre clienti sono la nostra migliore presentazione.
           </p>
-
-          {/* Google rating banner */}
-          <div className="pt-2 flex items-center justify-center gap-3">
-            <div className="flex text-amber-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
-            <span className="text-sm font-semibold text-[#2b2523]">5.0 / 5.0</span>
-            <span className="text-xs text-[#7e6f65]">• Scheda Ufficiale Google Maps</span>
-          </div>
         </div>
 
         {/* Testimonials Grid */}
@@ -63,16 +52,22 @@ export function TrustSection() {
           ))}
         </div>
 
-        {/* CTA to Google Maps reviews */}
+        {/* Google rating banner under testimonials */}
         <div className="mt-10 text-center">
           <a
             href={SALON_INFO.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#735129] hover:text-[#9c7545] transition-colors"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#faf6f1] border border-[#ebdccf] hover:border-[#d9c4b1] shadow-xs hover:shadow transition-all group"
           >
-            <span>Leggi le recensioni o lascia la tua sulla nostra scheda Google Maps</span>
-            <ExternalLink className="w-4 h-4" />
+            <div className="flex text-amber-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <span className="font-semibold text-sm text-[#2b2523]">5.0 su Google Maps</span>
+            <span className="text-xs text-[#8c7e75]">• 100% recensioni verificate</span>
+            <ExternalLink className="w-3.5 h-3.5 text-[#9c7545] group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
 

@@ -27,15 +27,6 @@ export function Header() {
 
           <div className="flex items-center gap-4 ml-auto text-xs">
             <a
-              href={SALON_INFO.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:text-[#e0c4a4] transition-colors"
-            >
-              <span className="text-amber-400">★★★★★</span>
-              <span className="hidden sm:inline font-medium">5.0 su Google</span>
-            </a>
-            <a
               href={`tel:${SALON_INFO.phone.replace(/\s+/g, '')}`}
               className="flex items-center gap-1.5 font-medium hover:text-[#e0c4a4] transition-colors"
             >

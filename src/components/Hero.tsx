@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SALON_INFO } from "@/data/salon";
-import { Sparkles, Star, MessageCircle, ShieldCheck, Heart, Leaf, Award, Phone } from "lucide-react";
+import { MessageCircle, ShieldCheck, Heart, Leaf, Award, Phone } from "lucide-react";
 
 export function Hero() {
   return (
@@ -10,20 +10,6 @@ export function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto space-y-6">
-          {/* Trust badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-[#e4d4c5] shadow-xs backdrop-blur-xs text-xs font-medium text-[#5c4f46]">
-            <span className="flex text-amber-500">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            </span>
-            <span className="font-semibold text-[#2b2523]">5.0</span>
-            <span className="text-[#8c7f76]">•</span>
-            <span>Centro Estetico a San Martino, Ferrara</span>
-          </div>
-
           {/* Main heading */}
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2b2523] tracking-tight leading-[1.15]">
             Il tuo momento di <span className="italic text-[#9c7545]">benessere</span> e autentica bellezza.
