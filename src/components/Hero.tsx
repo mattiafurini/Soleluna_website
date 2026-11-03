@@ -26,7 +26,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-[#61554c] leading-relaxed max-w-2xl mx-auto font-normal">
-            Benvenuti al <strong className="font-semibold text-[#2b2523]">SoleLuna</strong>. Uno spazio intimo e riservato dove ogni trattamento è cucito su misura.
+            Benvenuti a <strong className="font-semibold text-[#2b2523]">Soleluna</strong>. Uno spazio intimo e riservato dove ogni trattamento è cucito su misura.
           </p>
 
           {/* Call to actions */}
@@ -34,7 +34,7 @@ export function Hero() {
             {/* Direct contact buttons - Identical dimensions for perfect symmetrical centering */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
               <a
-                href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna! ✨ Vorrei verificare la disponibilità per un appuntamento in salone.")}`}
+                href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! ✨ Vorrei verificare la disponibilità per un appuntamento in salone.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-[260px] h-12 inline-flex items-center justify-center gap-2.5 px-4 rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white font-medium text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 text-center"

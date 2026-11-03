@@ -1,6 +1,6 @@
-# 🌿 SoleLuna — Centro Estetico & Benessere
+# 🌿 Soleluna — Centro Estetico & Benessere
 
-Sito web moderno, veloce e ottimizzato per dispositivi mobili per il centro estetico **SoleLuna** a San Martino, Ferrara.
+Sito web moderno, veloce e ottimizzato per dispositivi mobili per il centro estetico **Soleluna** a San Martino, Ferrara.
 
 Progettato con un approccio *mobile-first* per ispirare fiducia, valorizzare i trattamenti e massimizzare le conversioni attraverso il contatto diretto via **WhatsApp** e **chiamata telefonica**, integrandosi perfettamente con la gestione tramite agenda fisica del salone.
 

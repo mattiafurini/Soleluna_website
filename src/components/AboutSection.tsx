@@ -23,7 +23,7 @@ export function AboutSection() {
               <div className="my-6 border-t border-[#dfcbba]" />
 
               <blockquote className="italic text-[#5e5148] text-sm sm:text-base leading-relaxed">
-                &ldquo;Credo fermamente che un trattamento estetico sia prima di tutto un momento di riconnessione con se stessi. Quando una cliente entra da SoleLuna, la fretta rimane fuori dalla porta.&rdquo;
+                &ldquo;Credo fermamente che un trattamento estetico sia prima di tutto un momento di riconnessione con se stessi. Quando una cliente entra da Soleluna, la fretta rimane fuori dalla porta.&rdquo;
               </blockquote>
 
               <div className="mt-6 flex items-center gap-3">
@@ -35,7 +35,7 @@ export function AboutSection() {
                     {SALON_INFO.owner}
                   </div>
                   <div className="text-xs text-[#7e6f65]">
-                    Estetista & Titolare SoleLuna
+                    Estetista & Titolare Soleluna
                   </div>
                 </div>
               </div>
@@ -56,7 +56,7 @@ export function AboutSection() {
             </h2>
 
             <p className="text-[#594d45] text-sm sm:text-base leading-relaxed">
-              Il <strong>Centro Estetico SoleLuna</strong> a San Martino (Ferrara) nasce con una missione precisa: offrire alle proprie clienti trattamenti di alta qualità in un ambiente raccolto, sereno e rilassante, dove la cura del dettaglio e l&apos;ascolto sono al centro di ogni seduta.
+              Il <strong>Centro Estetico Soleluna</strong> a San Martino (Ferrara) nasce con una missione precisa: offrire alle proprie clienti trattamenti di alta qualità in un ambiente raccolto, sereno e rilassante, dove la cura del dettaglio e l&apos;ascolto sono al centro di ogni seduta.
             </p>
 
             <p className="text-[#594d45] text-sm sm:text-base leading-relaxed">

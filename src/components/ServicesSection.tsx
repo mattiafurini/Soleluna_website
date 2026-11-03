@@ -26,7 +26,7 @@ export function ServicesSection() {
           {/* Services Grid (3 Top Treatments in a single balanced row on desktop) */}
           <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5">
             {topServices.map((service: ServiceItem) => {
-              const whatsappText = `Ciao SoleLuna! ✨ Vorrei informazioni e disponibilità per il trattamento: "${service.name}".`;
+              const whatsappText = `Ciao Soleluna! ✨ Vorrei informazioni e disponibilità per il trattamento: "${service.name}".`;
               const whatsappUrl = `https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
 
               return (

@@ -46,7 +46,7 @@ export function BookingFormSection() {
         ? "Pomeriggio (14:30 - 19:00)"
         : `Orario indicativo: ${specificTime || "da concordare"}`;
 
-    return `Ciao SoleLuna! ✨
+    return `Ciao Soleluna! ✨
 Vorrei richiedere una disponibilità per un appuntamento:
 
 • Trattamento: ${selectedService}

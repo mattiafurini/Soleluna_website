@@ -17,7 +17,7 @@ const serifFont = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "SoleLuna Centro Estetico & Benessere | San Martino, Ferrara",
+  title: "Soleluna Centro Estetico & Benessere | San Martino, Ferrara",
   description:
     "Centro estetico a San Martino, Ferrara. Trattamenti viso personalizzati, cura del corpo, massaggi olistici, epilazione e semipermanente. Prenota il tuo momento di bellezza.",
   keywords: [
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     "trattamenti estetici ferrara",
   ],
   openGraph: {
-    title: "SoleLuna Centro Estetico & Benessere | Ferrara",
+    title: "Soleluna Centro Estetico & Benessere | Ferrara",
     description: "Trattamenti viso, corpo, massaggi e cura della persona a San Martino (Ferrara).",
     url: "https://centroesteticosoleluna.it",
-    siteName: "SoleLuna Centro Estetico",
+    siteName: "Soleluna Centro Estetico",
     locale: "it_IT",
     type: "website",
   },

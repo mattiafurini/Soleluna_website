@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 
 export function FloatingWhatsApp() {
   const whatsappUrl = `https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent(
-    "Ciao SoleLuna! Vorrei informazioni su un trattamento o verificare una disponibilità."
+    "Ciao Soleluna! Vorrei informazioni su un trattamento o verificare una disponibilità."
   )}`;
 
   return (

@@ -3,7 +3,7 @@ import { MessageCircle, Phone, Clock, Sparkles } from "lucide-react";
 
 export function WhatsAppBookingBanner() {
   const whatsappUrl = `https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent(
-    "Ciao SoleLuna! ✨ Vorrei verificare le disponibilità in agenda per un appuntamento."
+    "Ciao Soleluna! ✨ Vorrei verificare le disponibilità in agenda per un appuntamento."
   )}`;
 
   return (

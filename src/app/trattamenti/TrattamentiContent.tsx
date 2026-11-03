@@ -103,7 +103,7 @@ export function TrattamentiContent() {
         {/* Services Grid */}
         <div className="mt-4 grid grid-cols-1 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {filteredServices.map((service: ServiceItem) => {
-            const whatsappText = `Ciao SoleLuna! ✨ Vorrei informazioni e disponibilità per il trattamento: "${service.name}".`;
+            const whatsappText = `Ciao Soleluna! ✨ Vorrei informazioni e disponibilità per il trattamento: "${service.name}".`;
             const whatsappUrl = `https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
 
             return (
@@ -160,7 +160,7 @@ export function TrattamentiContent() {
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna! ✨ Vorrei un consiglio su quale trattamento è più adatto alle mie esigenze.")}`}
+              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! ✨ Vorrei un consiglio su quale trattamento è più adatto alle mie esigenze.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white font-medium text-xs shadow-xs transition-colors"

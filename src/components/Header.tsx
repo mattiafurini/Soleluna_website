@@ -62,7 +62,7 @@ export function Header() {
           </div>
           <div>
             <div className="font-serif text-2xl tracking-wider font-semibold text-[#2b2523]">
-              Sole<span className="text-[#b38b59]">Luna</span>
+              Sole<span className="text-[#b38b59]">luna</span>
             </div>
             <div className="text-[10px] tracking-widest uppercase text-[#73655c] -mt-1 font-medium">
               Centro Estetico & Benessere
@@ -112,7 +112,7 @@ export function Header() {
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna! Vorrei richiedere informazioni sulle disponibilità per un appuntamento.")}`}
+            href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! Vorrei richiedere informazioni sulle disponibilità per un appuntamento.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-sm hover:shadow transition-all"
@@ -176,7 +176,7 @@ export function Header() {
 
           <div className="pt-2 flex flex-col gap-2.5">
             <a
-              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna! Vorrei richiedere disponibilità per un appuntamento.")}`}
+              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! Vorrei richiedere disponibilità per un appuntamento.")}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}

@@ -33,7 +33,7 @@ export interface BusinessData {
 }
 
 export const SALON_INFO: BusinessData = {
-  name: "SoleLuna",
+  name: "Soleluna",
   companyName: "Soleluna S.a.s. di Pedone Annalisa & C.",
   owner: "Annalisa Pedone",
   piva: "01598440384",

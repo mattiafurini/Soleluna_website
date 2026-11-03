@@ -99,7 +99,7 @@ export function LocationSection() {
           {/* Right: Interactive Google Map (7 cols) */}
           <div className="lg:col-span-7 h-full min-h-[460px] rounded-3xl overflow-hidden border border-[#e8dcd0] shadow-sm relative bg-[#ede5dc]">
             <iframe
-              title="Mappa SoleLuna Ferrara"
+              title="Mappa Soleluna Ferrara"
               src={SALON_INFO.googleMapsEmbedUrl}
               width="100%"
               height="100%"
@@ -111,7 +111,7 @@ export function LocationSection() {
             />
             <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[#ebdcd0] text-xs font-medium text-[#2b2523] shadow-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-[#9c7545]" />
-              SoleLuna • San Martino (FE)
+              Soleluna • San Martino (FE)
             </div>
           </div>
         </div>

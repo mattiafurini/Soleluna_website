@@ -14,7 +14,7 @@ export function Footer() {
                 <Sparkles className="w-4 h-4 text-amber-100" />
               </div>
               <span className="font-serif text-2xl text-white font-semibold tracking-wide">
-                Sole<span className="text-[#b38b59]">Luna</span>
+                Sole<span className="text-[#b38b59]">luna</span>
               </span>
             </div>
 
@@ -114,7 +114,7 @@ export function Footer() {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#80756c] gap-3">
           <p>
-            © 2026 SoleLuna Centro Estetico. Tutti i diritti riservati.
+            © 2026 Soleluna Centro Estetico. Tutti i diritti riservati.
           </p>
           <p className="text-[11px]">
             Sito realizzato con cura per San Martino, Ferrara.

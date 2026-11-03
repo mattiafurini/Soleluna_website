@@ -80,7 +80,7 @@ export function TrustSection() {
         <div id="perche-noi" className="mt-20 pt-16 border-t border-[#ede2d6] scroll-mt-20">
           <div className="text-center max-w-xl mx-auto mb-12">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#9c7545]">
-              Perché Scegliere SoleLuna
+              Perché Scegliere Soleluna
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl text-[#2b2523] mt-2">
               Il nostro impegno per la tua tranquillità
