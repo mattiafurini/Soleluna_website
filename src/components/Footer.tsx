@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SALON_INFO } from "@/data/salon";
-import { Sparkles, MapPin, Phone, MessageCircle } from "lucide-react";
+import { MapPin, Phone, MessageCircle } from "lucide-react";
+import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
 
 export function Footer() {
   return (
@@ -9,9 +10,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#3b322d]">
           {/* Brand Info (5 cols) */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#9c7545] flex items-center justify-center text-white">
-                <Sparkles className="w-4 h-4 text-amber-100" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#b38b59] flex items-center justify-center text-white">
+                <SolelunaLogoIcon className="w-5 h-5 text-amber-100" />
               </div>
               <span className="font-serif text-2xl text-white font-semibold tracking-wide">
                 Sole<span className="text-[#b38b59]">luna</span>

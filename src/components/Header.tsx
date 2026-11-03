@@ -4,7 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { SALON_INFO } from "@/data/salon";
-import { Phone, MapPin, Clock, Menu, X, Sparkles, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Menu, X, MessageCircle } from "lucide-react";
+import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,9 +57,9 @@ export function Header() {
       {/* Main navigation */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
-            <Sparkles className="w-5 h-5 text-amber-100" />
+            <SolelunaLogoIcon className="w-6 h-6 text-white" />
           </div>
           <div>
             <div className="font-serif text-2xl tracking-wider font-semibold text-[#2b2523]">

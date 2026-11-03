@@ -1,4 +1,5 @@
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
 import { SALON_INFO } from "@/data/salon";
 
 export function AboutSection() {
@@ -9,8 +10,8 @@ export function AboutSection() {
           {/* Left: Atmospheric card / Presentation */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] shadow-sm">
-              <div className="w-14 h-14 rounded-2xl bg-[#9c7545] text-white flex items-center justify-center mb-6 shadow-sm">
-                <Sparkles className="w-7 h-7 text-amber-100" />
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] text-white flex items-center justify-center mb-6 shadow-sm">
+                <SolelunaLogoIcon className="w-8 h-8 text-white" />
               </div>
 
               <span className="text-xs uppercase tracking-widest font-semibold text-[#9c7545]">
