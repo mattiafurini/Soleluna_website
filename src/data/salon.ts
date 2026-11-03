@@ -186,23 +186,31 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
-export const TESTIMONIALS = [
+export interface TestimonialItem {
+  name: string;
+  badge?: string;
+  treatment?: string;
+  quote: string;
+  rating: number;
+}
+
+export const TESTIMONIALS: TestimonialItem[] = [
   {
-    name: "Giulia M.",
-    treatment: "Pulizia Viso & Trattamento Glow",
-    quote: "Frequento Soleluna da oltre due anni. Annalisa ha una delicatezza incredibile e i prodotti che usa si sentono che sono di alta qualità. Pelle rinata fin dalla prima seduta!",
+    name: "Noami Milan",
+    badge: "Local Guide su Google",
+    quote: "Professionalità, competenza, disponibilità e gentilezza, sono quattro dei tanti aggettivi positivi del centro estetico Soleluna. Annalisa, la titolare del centro estetico, ti accoglie sempre con il sorriso, oltre a metterti subito a tuo agio per concederti piccoli momenti di vere coccole!",
     rating: 5,
   },
   {
-    name: "Valentina R.",
-    treatment: "Massaggio Olistico & Rimodellante",
-    quote: "Un'oasi di pace. Ambiente profumato, accogliente e massima attenzione all'igiene. Quando esco dalla cabina mi sento completamente rigenerata. Consigliatissimo!",
+    name: "Morena Gallerani",
+    badge: "Local Guide su Google",
+    quote: "Una validissima professionista, una bellissima persona, due mani che fanno miracoli, fortunate le persone che hanno la fortuna di sperimentare i suoi trattamenti.",
     rating: 5,
   },
   {
-    name: "Elena B.",
-    treatment: "Semipermanente & Pedicure Spa",
-    quote: "Precisione impeccabile sulla manicure: il semipermanente mi dura intatto 4 settimane senza sbeccarsi. La comodità del parcheggio davanti è un plus fantastico.",
+    name: "Paola Montanari",
+    badge: "Local Guide su Google",
+    quote: "Bravissima estetista e non solo. Fantastici i massaggi.",
     rating: 5,
   },
 ];

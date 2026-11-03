@@ -45,11 +45,10 @@ export function ServicesSection() {
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
-                activeCategory === cat.key
+              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${activeCategory === cat.key
                   ? "bg-[#b38b59] text-white shadow-sm"
                   : "bg-white text-[#5c4f46] hover:bg-[#f2e7db] border border-[#e8dcd0]"
-              }`}
+                }`}
             >
               {cat.label}
             </button>
@@ -115,7 +114,7 @@ export function ServicesSection() {
         {/* Custom inquiry note */}
         <div className="mt-12 text-center bg-[#f4ede4] rounded-2xl p-6 border border-[#e5d8cb] max-w-2xl mx-auto">
           <p className="text-xs sm:text-sm text-[#594d45]">
-            Non trovi il trattamento specifico o hai bisogno di una consulenza personalizzata per un inestetismo?
+            Non trovi il trattamento specifico o hai bisogno di una consulenza personalizzata?
           </p>
           <a
             href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao SoleLuna, vorrei chiederti una consulenza personalizzata su un trattamento...")}`}

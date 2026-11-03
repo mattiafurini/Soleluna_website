@@ -26,7 +26,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-[#61554c] leading-relaxed max-w-2xl mx-auto font-normal">
-            Benvenuta in <strong className="font-semibold text-[#2b2523]">SoleLuna</strong>. Uno spazio intimo e riservato dove ogni trattamento viso, corpo e massaggio è cucito su misura per farti sentire coccolata, rigenerata e luminosa.
+            Benvenuti al <strong className="font-semibold text-[#2b2523]">SoleLuna</strong>. Uno spazio intimo e riservato dove ogni trattamento è cucito su misura.
           </p>
 
           {/* Call to actions */}

@@ -40,13 +40,18 @@ export function TrustSection() {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#ede0d2]">
-                <div className="font-serif font-semibold text-sm text-[#2b2523]">
-                  {t.name}
+              <div className="mt-6 pt-4 border-t border-[#ede0d2] flex items-center justify-between">
+                <div>
+                  <div className="font-serif font-semibold text-sm text-[#2b2523]">
+                    {t.name}
+                  </div>
+                  <div className="text-xs text-[#9c7545] font-medium">
+                    {t.badge || "Recensione Google"}
+                  </div>
                 </div>
-                <div className="text-xs text-[#9c7545] font-medium">
-                  Trattamento: {t.treatment}
-                </div>
+                <span className="text-[11px] text-[#73655c] bg-[#f4ede4] px-2.5 py-0.5 rounded-full border border-[#e8dccf] font-medium">
+                  Google
+                </span>
               </div>
             </div>
           ))}
@@ -65,8 +70,8 @@ export function TrustSection() {
                 <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="font-semibold text-sm text-[#2b2523]">5.0 su Google Maps</span>
-            <span className="text-xs text-[#8c7e75]">• 100% recensioni verificate</span>
+            <span className="font-semibold text-sm text-[#2b2523]">su Google Maps</span>
+            <span className="text-xs text-[#8c7e75] hidden sm:inline">• 100% recensioni verificate</span>
             <ExternalLink className="w-3.5 h-3.5 text-[#9c7545] group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
