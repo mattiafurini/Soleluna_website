@@ -27,23 +27,187 @@ const CATEGORY_LABELS: Record<string, string> = {
   "mani-piedi": "Mani & Piedi Spa",
 };
 
+const CATEGORY_SEARCH_TERMS: Record<string, string[]> = {
+  viso: [
+    "viso",
+    "facciale",
+    "pulizia viso",
+    "trattamento viso",
+    "trattamenti viso",
+    "pelle",
+    "cute",
+    "anti-age",
+    "antiage",
+    "rughe",
+    "illuminante",
+    "glow",
+    "acido ialuronico",
+    "siero",
+    "couperose",
+    "sensibile",
+    "delicata",
+    "purificante",
+    "sebo",
+    "peeling",
+    "maschera",
+  ],
+  corpo: [
+    "corpo",
+    "body",
+    "cura del corpo",
+    "trattamenti corpo",
+    "trattamento corpo",
+    "scrub",
+    "esfoliante",
+    "sali marini",
+    "drenante",
+    "anticellulite",
+    "cellulite",
+    "ritenzione",
+    "rimodellante",
+    "bendaggi",
+    "fanghi",
+    "fangoterapia",
+    "argilla",
+    "termale",
+    "tonificante",
+    "rassodante",
+  ],
+  massaggi: [
+    "massaggi",
+    "massaggio",
+    "massage",
+    "relax",
+    "rilassante",
+    "antistress",
+    "olistico",
+    "decontratturante",
+    "schiena",
+    "cervicale",
+    "contratture",
+    "linfodrenaggio",
+    "vodder",
+    "drenaggio",
+    "gambe",
+    "benessere",
+    "aromaterapia",
+  ],
+  epilazione: [
+    "epilazione",
+    "depilazione",
+    "ceretta",
+    "cera",
+    "laser",
+    "sopracciglia",
+    "peli",
+    "peluria",
+    "definitiva",
+    "progressiva",
+    "diodo",
+    "inguine",
+    "ascelle",
+    "braccia",
+    "gambe",
+  ],
+  "mani-piedi": [
+    "mani",
+    "piedi",
+    "mano",
+    "piede",
+    "manicure",
+    "pedicure",
+    "unghie",
+    "unghia",
+    "semipermanente",
+    "smalto",
+    "gel",
+    "cuticole",
+    "paraffina",
+    "screpolate",
+    "calli",
+    "callosita",
+    "spa",
+  ],
+};
+
+function normalizeString(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function serviceMatchesQuery(service: ServiceItem, rawQuery: string): boolean {
+  if (!rawQuery.trim()) return true;
+  const q = normalizeString(rawQuery.trim());
+
+  const nameNorm = normalizeString(service.name);
+  const descNorm = normalizeString(service.description);
+  const catNorm = normalizeString(service.category);
+  const catLabel = normalizeString(CATEGORY_LABELS[service.category] || "");
+  const catTabLabel = normalizeString(
+    CATEGORIES.find((c) => c.key === service.category)?.label || ""
+  );
+
+  // 1. Match nel nome
+  if (nameNorm.includes(q)) return true;
+
+  // 2. Match nella descrizione
+  if (descNorm.includes(q)) return true;
+
+  // 3. Match nella categoria o nell'etichetta di categoria
+  if (catNorm.includes(q) || catLabel.includes(q) || catTabLabel.includes(q)) return true;
+
+  // 4. Match nei sinonimi e termini associati alla categoria
+  const terms = CATEGORY_SEARCH_TERMS[service.category] || [];
+  if (terms.some((term) => normalizeString(term).includes(q) || q.includes(normalizeString(term)))) {
+    return true;
+  }
+
+  // 5. Match per query a più parole (es. "pulizia viso", "massaggio schiena")
+  const words = q.split(/\s+/).filter(Boolean);
+  if (words.length > 1) {
+    const allMatch = words.every((w) =>
+      nameNorm.includes(w) ||
+      descNorm.includes(w) ||
+      catNorm.includes(w) ||
+      catLabel.includes(w) ||
+      terms.some((term) => normalizeString(term).includes(w))
+    );
+    if (allMatch) return true;
+  }
+
+  return false;
+}
+
 export function TrattamentiContent() {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredServices = SERVICES.filter((s) => {
-    const matchesCategory = activeCategory === "all" || s.category === activeCategory;
-    const query = searchQuery.trim().toLowerCase();
-    const matchesSearch =
-      query === "" ||
-      s.name.toLowerCase().includes(query) ||
-      s.description.toLowerCase().includes(query);
-    return matchesCategory && matchesSearch;
-  });
+  const query = searchQuery.trim();
+
+  // Filtro principale nella categoria corrente
+  const matchesCurrentCategory = SERVICES.filter(
+    (s) => (activeCategory === "all" || s.category === activeCategory) && serviceMatchesQuery(s, query)
+  );
+
+  // Se l'utente ha digitato una ricerca che non dà risultati nella categoria selezionata
+  // ma trova corrispondenze in altre categorie (es. ha "Viso" attivo e cerca "massaggio"):
+  const allCategoryMatches = query ? SERVICES.filter((s) => serviceMatchesQuery(s, query)) : [];
+
+  const isCrossCategoryFallback =
+    activeCategory !== "all" &&
+    query !== "" &&
+    matchesCurrentCategory.length === 0 &&
+    allCategoryMatches.length > 0;
+
+  const filteredServices = isCrossCategoryFallback ? allCategoryMatches : matchesCurrentCategory;
 
   const getCategoryCount = (key: CategoryFilter) => {
-    if (key === "all") return SERVICES.length;
-    return SERVICES.filter((s) => s.category === key).length;
+    if (key === "all") {
+      return SERVICES.filter((s) => serviceMatchesQuery(s, query)).length;
+    }
+    return SERVICES.filter((s) => s.category === key && serviceMatchesQuery(s, query)).length;
   };
 
   const handleResetFilters = () => {
@@ -87,13 +251,13 @@ export function TrattamentiContent() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Cerca trattamento (es. viso, drenante, unghie)..."
+                placeholder="Cerca per nome o categoria (es. viso, massaggi, corpo, unghie)..."
                 className="w-full pl-10 pr-9 py-2.5 rounded-full text-xs sm:text-sm bg-white border border-[#e8dcd0] focus:border-[#9c7545] focus:outline-none transition-colors shadow-2xs text-[#2b2523] placeholder-[#9c8e84]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#a8998d] hover:text-[#2b2523] p-0.5"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#a8998d] hover:text-[#2b2523] p-0.5 cursor-pointer"
                   aria-label="Cancella ricerca"
                 >
                   <X className="w-4 h-4" />
@@ -116,8 +280,35 @@ export function TrattamentiContent() {
             </div>
           </div>
 
+          {/* Quick Category Chips */}
+          <div className="flex items-center flex-wrap gap-1.5 pt-0.5 text-xs text-[#8a7b71]">
+            <span className="text-[11px] text-[#9c897d] mr-1">Ricerche frequenti:</span>
+            {["Viso", "Massaggi", "Corpo", "Epilazione", "Mani & Piedi"].map((chip) => {
+              const isSelected = searchQuery.toLowerCase() === chip.toLowerCase();
+              return (
+                <button
+                  key={chip}
+                  onClick={() => {
+                    if (isSelected) {
+                      setSearchQuery("");
+                    } else {
+                      setSearchQuery(chip.toLowerCase());
+                    }
+                  }}
+                  className={`text-[11px] px-2.5 py-0.5 rounded-full transition-colors cursor-pointer border ${
+                    isSelected
+                      ? "bg-[#b38b59] text-white border-[#b38b59]"
+                      : "bg-[#f4ede4] hover:bg-[#ebdccf] text-[#6b584a] border-[#e5d8cb]"
+                  }`}
+                >
+                  {chip}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Categories Tabs Filter */}
-          <div className="space-y-2">
+          <div className="space-y-2 pt-2">
             <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-[#8a7a70]">
               <Filter className="w-3.5 h-3.5 text-[#9c7545]" />
               <span>Filtra per Categoria</span>
@@ -152,12 +343,27 @@ export function TrattamentiContent() {
           </div>
         </FadeIn>
 
+        {/* Cross-category fallback notice */}
+        {isCrossCategoryFallback && (
+          <div className="mt-6 p-3.5 px-4 rounded-2xl bg-[#faf3eb] border border-[#ecd7c4] text-xs text-[#7d6554] flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <span>
+              Nessun risultato in <strong>{CATEGORIES.find((c) => c.key === activeCategory)?.label}</strong>, ma abbiamo trovato <strong>{filteredServices.length}</strong> trattamenti correlati:
+            </span>
+            <button
+              onClick={() => setActiveCategory("all")}
+              className="text-xs font-semibold text-[#9c7545] underline hover:text-[#7d5c34] cursor-pointer"
+            >
+              Mostra tutti i trattamenti
+            </button>
+          </div>
+        )}
+
         {/* Services Grid with Layout Animations & Photo Headers */}
         <div className="mt-8">
           {filteredServices.length === 0 ? (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               className="bg-white rounded-3xl p-10 text-center border border-[#e8dcd0] max-w-md mx-auto space-y-3 shadow-xs"
             >
               <div className="w-12 h-12 rounded-full bg-[#faf3eb] text-[#9c7545] flex items-center justify-center mx-auto">
