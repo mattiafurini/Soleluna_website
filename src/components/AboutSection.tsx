@@ -12,7 +12,7 @@ export function AboutSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Atmospheric photo + Philosophy card */}
-          <FadeIn direction="right" distance={30} className="lg:col-span-5 relative space-y-5">
+          <FadeIn className="lg:col-span-5 relative space-y-5">
             {/* Treatment Photo Frame */}
             <div className="relative h-64 sm:h-72 rounded-3xl overflow-hidden border border-[#e8d5c4] shadow-sm group">
               <Image
@@ -72,7 +72,7 @@ export function AboutSection() {
           </FadeIn>
 
           {/* Right: Detailed text & principles */}
-          <FadeIn direction="left" distance={30} delay={0.15} className="lg:col-span-7 space-y-6">
+          <FadeIn delay={0.15} className="lg:col-span-7 space-y-6">
             <div className="inline-block text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
               Chi Siamo
             </div>

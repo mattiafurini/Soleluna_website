@@ -33,9 +33,9 @@ export function Hero() {
         <div className="text-center max-w-3xl mx-auto space-y-6">
           {/* Pill Badge at top with live pulse */}
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-[#ebdccf] text-xs font-medium text-[#7a6454] shadow-2xs hover:border-[#d9c4b1] transition-colors"
           >
             <span className="relative flex h-2 w-2">
@@ -47,9 +47,9 @@ export function Hero() {
 
           {/* Main editorial heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
             className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[66px] text-[#2b2523] tracking-tight leading-[1.12]"
           >
             Il tuo momento di{" "}
@@ -62,9 +62,9 @@ export function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base sm:text-lg text-[#61554c] leading-relaxed max-w-2xl mx-auto font-normal"
           >
             Benvenuti a <strong className="font-semibold text-[#2b2523]">Soleluna</strong>. Uno spazio intimo e raccolto dove ogni trattamento è studiato sulle esigenze uniche della tua pelle. Niente fretta: solo cura autentica e risultati visibili.
@@ -72,9 +72,9 @@ export function Hero() {
 
           {/* Call to actions */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="pt-2 flex flex-col items-center justify-center gap-4"
           >
             {/* Direct contact buttons */}
@@ -150,9 +150,9 @@ export function Hero() {
 
         {/* Editorial Visual Centerpiece with Floating Glassmorphic Badges */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 sm:mt-16 relative max-w-4xl mx-auto"
         >
           {/* Main frame */}
@@ -211,9 +211,9 @@ export function Hero() {
 
         {/* 3 Pillars of Excellence - Elegant Highlight Strip */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           className="mt-14 sm:mt-18 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"
         >
           <div className="bg-white/90 backdrop-blur-xs border border-[#ede2d6] rounded-2xl p-6 text-left shadow-2xs hover:shadow-md transition-all hover:-translate-y-1 group">

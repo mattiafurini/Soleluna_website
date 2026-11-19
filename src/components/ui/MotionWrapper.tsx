@@ -15,9 +15,9 @@ interface FadeInProps extends HTMLMotionProps<"div"> {
 export function FadeIn({
   children,
   delay = 0,
-  direction = "up",
-  distance = 24,
-  duration = 0.6,
+  direction = "none",
+  distance = 0,
+  duration = 0.5,
   className = "",
   ...props
 }: FadeInProps) {
@@ -49,7 +49,7 @@ export function FadeIn({
       transition={{
         duration,
         delay,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut",
       }}
       className={className}
       {...props}
@@ -103,13 +103,12 @@ export function StaggerItem({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0 },
         visible: {
           opacity: 1,
-          y: 0,
           transition: {
-            duration: 0.5,
-            ease: [0.22, 1, 0.36, 1],
+            duration: 0.4,
+            ease: "easeOut",
           },
         },
       }}

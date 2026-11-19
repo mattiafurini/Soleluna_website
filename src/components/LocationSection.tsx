@@ -23,7 +23,7 @@ export function LocationSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Contact Info & Opening Hours (5 cols) */}
-          <FadeIn direction="right" distance={24} className="lg:col-span-5 space-y-6">
+          <FadeIn className="lg:col-span-5 space-y-6">
             {/* Address Box */}
             <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] space-y-4 shadow-2xs hover:shadow-xs transition-shadow">
               <div className="flex items-start gap-3.5">
@@ -100,7 +100,7 @@ export function LocationSection() {
           </FadeIn>
 
           {/* Right: Interactive Google Map (7 cols) */}
-          <FadeIn direction="left" distance={24} delay={0.15} className="lg:col-span-7 h-full min-h-[460px] rounded-3xl overflow-hidden border border-[#e8dcd0] shadow-sm relative bg-[#ede5dc]">
+          <FadeIn delay={0.15} className="lg:col-span-7 h-full min-h-[460px] rounded-3xl overflow-hidden border border-[#e8dcd0] shadow-sm relative bg-[#ede5dc]">
             <iframe
               src={SALON_INFO.googleMapsEmbedUrl}
               width="100%"

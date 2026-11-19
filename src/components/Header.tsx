@@ -84,12 +84,8 @@ export function Header() {
           </div>
         </div>
 
-        {/* Main Navigation Row: Height is strictly locked on mobile (h-16) to prevent any jumping */}
-        <div
-          className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 ${
-            scrolled ? "sm:h-16" : "sm:h-20"
-          } transition-[height] duration-200`}
-        >
+        {/* Main Navigation Row: Height is completely fixed (h-16 sm:h-18) to prevent any layout shifts */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-18">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform shrink-0">
