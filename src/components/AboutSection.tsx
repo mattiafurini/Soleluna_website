@@ -1,6 +1,9 @@
-import { CheckCircle2 } from "lucide-react";
+"use client";
+
+import { CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
 import { SALON_INFO } from "@/data/salon";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/MotionWrapper";
 
 export function AboutSection() {
   return (
@@ -8,8 +11,8 @@ export function AboutSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Atmospheric card / Presentation */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] shadow-sm">
+          <FadeIn direction="right" distance={30} className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] shadow-xs hover:shadow-md transition-shadow">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] text-white flex items-center justify-center mb-6 shadow-sm">
                 <SolelunaLogoIcon className="w-8 h-8 text-white" />
               </div>
@@ -43,11 +46,11 @@ export function AboutSection() {
             </div>
 
             {/* Subtle decorative dot */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#ebd8c5]/40 rounded-full blur-xl -z-10" />
-          </div>
+            <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-[#ebd8c5]/40 rounded-full blur-xl -z-10" />
+          </FadeIn>
 
           {/* Right: Detailed text & principles */}
-          <div className="lg:col-span-7 space-y-6">
+          <FadeIn direction="left" distance={30} delay={0.15} className="lg:col-span-7 space-y-6">
             <div className="inline-block text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
               Chi Siamo
             </div>
@@ -94,15 +97,15 @@ export function AboutSection() {
             <div className="pt-4">
               <a
                 href="#trattamenti"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#9c7545] hover:text-[#7d5c33] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#9c7545] hover:text-[#7d5c33] transition-colors group"
               >
-                Esplora i nostri trattamenti →
+                <span>Esplora i nostri trattamenti</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>
   );
 }
-
