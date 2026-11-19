@@ -52,13 +52,13 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-colors duration-200 ${
           scrolled
-            ? "bg-[#faf8f5]/92 backdrop-blur-xl border-b border-[#e5d5c5] shadow-xs"
+            ? "bg-[#faf8f5]/95 backdrop-blur-xl border-b border-[#e5d5c5] shadow-2xs"
             : "bg-[#faf8f5]/95 backdrop-blur-md border-b border-[#ebdcd0]"
         }`}
       >
-        {/* Top bar info (Desktop only to keep mobile header clean & uncluttered) */}
+        {/* Top bar info (Desktop only: hidden on mobile to prevent layout shifts) */}
         <div className="hidden sm:block bg-[#2b2523] text-[#f4ede4] text-xs py-2 px-4">
           <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-4 text-neutral-300">
@@ -84,11 +84,11 @@ export function Header() {
           </div>
         </div>
 
-        {/* Main Navigation Row */}
+        {/* Main Navigation Row: Height is strictly locked on mobile (h-16) to prevent any jumping */}
         <div
-          className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between transition-all duration-300 ${
-            scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
-          }`}
+          className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 ${
+            scrolled ? "sm:h-16" : "sm:h-20"
+          } transition-[height] duration-200`}
         >
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
@@ -182,11 +182,14 @@ export function Header() {
       </header>
 
       {/* ======================================================== */}
-      {/* MOBILE PERSISTENT BOTTOM DOCK (App Style Navigation)     */}
+      {/* MOBILE PERSISTENT BOTTOM DOCK: Rock-Solid Hardware Accelerated */}
       {/* ======================================================== */}
       <nav
         aria-label="Navigazione rapida mobile"
-        className="md:hidden fixed bottom-3 left-3 right-3 max-w-md mx-auto z-40 bg-[#faf8f5]/95 backdrop-blur-2xl border border-[#ebdccf] shadow-2xl rounded-2xl p-1.5 flex items-center justify-around text-center"
+        className="md:hidden fixed left-3 right-3 max-w-md mx-auto z-40 bg-[#faf8f5]/95 backdrop-blur-2xl border border-[#ebdccf] shadow-xl rounded-2xl p-1.5 flex items-center justify-around text-center transform-gpu will-change-transform"
+        style={{
+          bottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))",
+        }}
       >
         {navLinks.map((item, idx) => {
           const Icon = item.icon;
@@ -197,7 +200,7 @@ export function Header() {
               <Link
                 key={idx}
                 href={item.href}
-                className={`flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl transition-all ${
+                className={`flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl transition-colors ${
                   isTrattamentiActive
                     ? "text-[#9c7545] font-semibold"
                     : "text-[#7a6d64] hover:text-[#2b2523]"
@@ -214,7 +217,7 @@ export function Header() {
               key={idx}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id!)}
-              className="flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[#7a6d64] hover:text-[#9c7545] transition-all cursor-pointer"
+              className="flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[#7a6d64] hover:text-[#9c7545] transition-colors cursor-pointer"
             >
               <Icon className="w-4 h-4 mb-0.5" />
               <span className="text-[10px] leading-tight">{item.label}</span>
