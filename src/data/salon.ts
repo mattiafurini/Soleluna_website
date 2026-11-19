@@ -5,6 +5,7 @@ export interface ServiceItem {
   description: string;
   duration: string;
   price?: string;
+  benefit?: string;
   popular?: boolean;
 }
 
@@ -72,6 +73,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Pulizia Viso Profonda & Rigenerante",
     description: "Detersione accurata, vaporizzazione con ozono, spremitura delicata, peeling enzimatico e maschera personalizzata in base al biotipo cutaneo.",
     duration: "60 min",
+    benefit: "Purificante & Luminosità Istantanea",
     popular: true,
   },
   {
@@ -80,6 +82,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Trattamento Anti-Age & Effetto Glow",
     description: "Trattamento intensivo con sieri all'acido ialuronico puro e vitamine antiossidanti. Distende i tratti e dona luminosità immediata.",
     duration: "50 min",
+    benefit: "Distensivo Rughe & Effetto Glow",
     popular: true,
   },
   {
@@ -88,6 +91,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Trattamento Lenitivo Pelli Delicate / Couperose",
     description: "Protocollo calmante ad azione vaso-protettrice con attivi naturali calmanti per ridurre rossori, infiammazioni e secchezza cutanea.",
     duration: "45 min",
+    benefit: "Anti-Rossore & Barriera Protetta",
   },
 
   // CORPO
@@ -97,6 +101,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Scrub Esfoliante ai Sali Marini & Oli Essenziali",
     description: "Rinnovo cellulare profondo per una pelle setosa ed elastica, seguito da un massaggio nutriente con burro caldo.",
     duration: "45 min",
+    benefit: "Pelle di Seta & Rinnovo Cellulare",
   },
   {
     id: "drenante-anticellulite",
@@ -104,6 +109,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Trattamento Rimodellante & Drenante Intensivo",
     description: "Azione d'urto mirata contro ritenzione idrica e adiposità localizzate, con bendaggi osmotici ed estratti drenanti concentrati.",
     duration: "60 min",
+    benefit: "Rimodellante & Gambe Leggere",
     popular: true,
   },
   {
@@ -112,6 +118,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Trattamento con Fanghi Bio-Attivi Termali",
     description: "Impacco con argille termali remineralizzanti, ideale per stimolare la microcircolazione e tonificare i tessuti rilassati.",
     duration: "50 min",
+    benefit: "Drenaggio Termale & Tonicità",
   },
 
   // MASSAGGI
@@ -121,6 +128,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Massaggio Olistico Antistress",
     description: "Movimenti lenti e avvolgenti a lume di candela per sciogliere le tensioni mentali e fisiche con aromaterapia personalizzata.",
     duration: "50 min",
+    benefit: "Decompressione & Calma Mentale",
     popular: true,
   },
   {
@@ -129,6 +137,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Massaggio Decontratturante Cervicale & Schiena",
     description: "Manovre profonde mirate a sciogliere contratture muscolari, rigidità posturali e fastidi da stress o lavoro sedentario.",
     duration: "40 min",
+    benefit: "Scioglie Tensioni & Rigidità",
   },
   {
     id: "linfodrenaggio",
@@ -136,6 +145,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Linfodrenaggio Manuale Metodo Vodder",
     description: "Sfioramenti ritmici e delicati che favoriscono il deflusso dei liquidi ristagnanti, donando immediata leggerezza alle gambe.",
     duration: "50 min",
+    benefit: "Riattiva Circolazione & Sgonfia",
   },
 
   // EPILAZIONE
@@ -145,6 +155,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Epilazione Completa Gambe & Inguine",
     description: "Cera delicata al biossido di titanio adatta alle pelli più sensibili. Strappo dolce che rispetta il film idrolipidico.",
     duration: "45 min",
+    benefit: "Pelle Liscia a Lungo Senza Irritazioni",
   },
   {
     id: "definizione-sopracciglia",
@@ -152,6 +163,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Architettura & Definizione Sopracciglia",
     description: "Studio della forma del viso, epilazione di precisione con pinzetta e valorizzazione dello sguardo.",
     duration: "20 min",
+    benefit: "Armonia del Viso & Sguardo Aperto",
   },
   {
     id: "consulenza-laser",
@@ -159,6 +171,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Consulenza Gratuita Epilazione Laser Diodo",
     description: "Check-up cutaneo gratuito con anamnesi del fototipo e prova spot per iniziare un percorso di epilazione permanente progressiva.",
     duration: "25 min",
+    benefit: "Check-up Fototipo & Prova Gratuita",
     popular: true,
   },
 
@@ -169,6 +182,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Manicure & Smalto Semipermanente con Rinforzo",
     description: "Cura minuziosa delle cuticole, limatura anatomica, stesura con rinforzo e colore a scelta tra oltre 60 tonalità di tendenza.",
     duration: "50 min",
+    benefit: "Rinforzo & Brillantezza 3+ Settimane",
     popular: true,
   },
   {
@@ -177,6 +191,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Pedicure Curativo & Estetico Spa",
     description: "Pediluvio rilassante con sali balsamici, rimozione callosità e ispessimenti, scrub rigenerante, massaggio e smalto.",
     duration: "50 min",
+    benefit: "Sollievo Immediato & Talloni Vellutati",
   },
   {
     id: "paraffina-nutriente",
@@ -184,6 +199,7 @@ export const SERVICES: ServiceItem[] = [
     name: "Trattamento Intensivo Maschera alla Paraffina",
     description: "Bagno caldo alla paraffina per mani o piedi profondamente screpolati, secchi o disidratati. Risultato vellutato istantaneo.",
     duration: "30 min",
+    benefit: "Nutrizione Profonda Anti-Secchezza",
   },
 ];
 

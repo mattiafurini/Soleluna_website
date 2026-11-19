@@ -439,6 +439,13 @@ export function TrattamentiContent() {
                         <p className="text-xs sm:text-sm text-[#665a52] leading-relaxed">
                           {service.description}
                         </p>
+
+                        {service.benefit && (
+                          <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#8a6839] bg-[#faf3ea] px-2.5 py-1 rounded-lg border border-[#edd8c4]">
+                            <Sparkles className="w-3 h-3 text-[#b38b59] shrink-0" />
+                            <span>{service.benefit}</span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="mt-4 pt-3.5 border-t border-[#f2e7dc] flex items-center justify-between gap-3">
@@ -470,30 +477,58 @@ export function TrattamentiContent() {
           )}
         </div>
 
-        {/* Custom inquiry card */}
-        <FadeIn delay={0.2} className="mt-14 bg-gradient-to-r from-[#f4ede4] to-[#fbf8f4] rounded-3xl p-6 sm:p-8 border border-[#e5d8cb] text-center max-w-2xl mx-auto space-y-4 shadow-2xs">
-          <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#2b2523]">
-            Non sai quale trattamento è più adatto a te?
+        {/* Luxury 3-Step Consultation Guide */}
+        <FadeIn delay={0.2} className="mt-16 rounded-[32px] bg-gradient-to-br from-[#faf4ee] via-[#f7eee4] to-[#f0e3d5] p-7 sm:p-10 border border-[#e5d5c5] shadow-xs text-center max-w-3xl mx-auto space-y-6">
+          <div className="inline-block text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-white/80 px-3.5 py-1 rounded-full border border-[#ebdccf]">
+            Guida Personalizzata Soleluna
+          </div>
+
+          <h3 className="font-serif text-2xl sm:text-3xl text-[#2b2523] leading-snug">
+            Non sai quale percorso scegliere? <span className="italic font-normal text-[#9c7545]">Ti guidiamo noi.</span>
           </h3>
-          <p className="text-xs sm:text-sm text-[#594d45] leading-relaxed">
-            Contattaci su WhatsApp o telefona direttamente in salone. Annalisa sarà felice di consigliarti il percorso migliore per le esigenze della tua pelle.
+
+          <p className="text-xs sm:text-sm text-[#594d45] leading-relaxed max-w-xl mx-auto">
+            Ogni pelle ha una sua storia e necessità stagionali diverse. Ecco come costruiamo insieme la tua esperienza:
           </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+
+          {/* 3 Step Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left pt-2">
+            <div className="bg-white/90 backdrop-blur-xs rounded-2xl p-5 border border-[#ede2d6] shadow-2xs space-y-2">
+              <span className="text-[10px] font-bold text-[#b38b59] uppercase tracking-wider block">Fase 01</span>
+              <h4 className="font-serif font-semibold text-sm text-[#2b2523]">Messaggio Senza Impegno</h4>
+              <p className="text-[11px] text-[#6e6056] leading-relaxed">Scrivici su WhatsApp descrivendo come senti la pelle o quale obiettivo vorresti raggiungere.</p>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-xs rounded-2xl p-5 border border-[#ede2d6] shadow-2xs space-y-2">
+              <span className="text-[10px] font-bold text-[#b38b59] uppercase tracking-wider block">Fase 02</span>
+              <h4 className="font-serif font-semibold text-sm text-[#2b2523]">Check-up & Consiglio</h4>
+              <p className="text-[11px] text-[#6e6056] leading-relaxed">Annalisa analizza le tue esigenze e ti consiglia il trattamento o massaggio più affine.</p>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-xs rounded-2xl p-5 border border-[#ede2d6] shadow-2xs space-y-2">
+              <span className="text-[10px] font-bold text-[#b38b59] uppercase tracking-wider block">Fase 03</span>
+              <h4 className="font-serif font-semibold text-sm text-[#2b2523]">Cabina Privata Senza Fretta</h4>
+              <p className="text-[11px] text-[#6e6056] leading-relaxed">Goditi il tuo appuntamento in un ambiente raccolto e silenzioso, dedicato solo a te.</p>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <a
-              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! ✨ Vorrei un consiglio su quale trattamento è più adatto alle mie esigenze.")}`}
+              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! ✨ Vorrei un consiglio personalizzato su quale trattamento è più indicato per me.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white font-medium text-xs shadow-xs hover:shadow transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white font-medium text-xs shadow-xs hover:shadow transition-all"
             >
               <MessageCircle className="w-4 h-4 text-white" />
-              Consulenza su WhatsApp
+              <span>Richiedi un consiglio su WhatsApp</span>
             </a>
             <a
               href={`tel:${SALON_INFO.phone.replace(/\s+/g, '')}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#faf6f1] text-[#2b2523] border border-[#d8c8b8] font-medium text-xs shadow-xs hover:shadow transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#faf6f1] text-[#2b2523] border border-[#d8c8b8] font-medium text-xs shadow-2xs hover:shadow transition-all"
             >
               <Phone className="w-3.5 h-3.5 text-[#b38b59]" />
-              Chiama: {SALON_INFO.phone}
+              <span>Chiama: {SALON_INFO.phone}</span>
             </a>
           </div>
         </FadeIn>

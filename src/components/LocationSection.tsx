@@ -1,10 +1,20 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { SALON_INFO } from "@/data/salon";
-import { MapPin, Phone, Mail, Navigation, Car, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Mail, Navigation, Car, ExternalLink, Clock } from "lucide-react";
 import { FadeIn } from "@/components/ui/MotionWrapper";
+import { SalonStatusBadge } from "@/components/SalonStatusBadge";
 
 export function LocationSection() {
+  const [currentDayName, setCurrentDayName] = useState<string>("");
+
+  useEffect(() => {
+    const daysMap = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+    const now = new Date();
+    const romeDate = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Rome" }));
+    setCurrentDayName(daysMap[romeDate.getDay()]);
+  }, []);
   return (
     <section id="dove-siamo" className="py-20 bg-white border-t border-[#ede2d6] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -77,24 +87,44 @@ export function LocationSection() {
               </div>
             </div>
 
-            {/* Opening Hours Table */}
-            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] space-y-3 shadow-2xs">
-              <div className="flex items-center justify-between">
-                <h3 className="font-serif font-semibold text-base text-[#2b2523]">Orari di Apertura</h3>
-                <span className="text-[11px] font-medium text-[#246b3e] bg-[#eaf4ec] px-2 py-0.5 rounded-full border border-[#cee4d2]">
-                  Su Appuntamento
-                </span>
+            {/* Opening Hours Table with Today Highlight */}
+            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] space-y-4 shadow-2xs">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-[#ebdcd0]">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#9c7545]" />
+                  <h3 className="font-serif font-semibold text-base text-[#2b2523]">Orari di Apertura</h3>
+                </div>
+                <SalonStatusBadge className="text-xs text-[#2b2523]" />
               </div>
 
-              <div className="divide-y divide-[#ebdcd0] text-xs sm:text-sm">
-                {SALON_INFO.hours.map((h, idx) => (
-                  <div key={idx} className="py-2 flex items-center justify-between">
-                    <span className="font-medium text-[#4a403a]">{h.day}</span>
-                    <span className={h.closed ? "text-[#a38072] italic font-medium" : "text-[#2b2523] font-semibold"}>
-                      {h.hours}
-                    </span>
-                  </div>
-                ))}
+              <div className="space-y-1 text-xs sm:text-sm">
+                {SALON_INFO.hours.map((h, idx) => {
+                  const isToday = h.day === currentDayName;
+                  return (
+                    <div
+                      key={idx}
+                      className={`py-2 px-2.5 rounded-xl flex items-center justify-between transition-colors ${
+                        isToday
+                          ? "bg-[#f3e9de] border border-[#e2d0be] font-semibold text-[#2b2523] shadow-2xs"
+                          : "text-[#594d45] hover:bg-[#faf4ec]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className={isToday ? "font-bold text-[#2b2523]" : "font-medium"}>
+                          {h.day}
+                        </span>
+                        {isToday && (
+                          <span className="text-[10px] uppercase tracking-wider font-bold text-[#9c7545] bg-white px-2 py-0.5 rounded-full border border-[#e2cfbe] shadow-2xs">
+                            Oggi
+                          </span>
+                        )}
+                      </div>
+                      <span className={h.closed ? "text-[#9c8276] italic font-medium" : isToday ? "text-[#2b2523] font-bold" : "text-[#3b322d] font-semibold"}>
+                        {h.hours}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </FadeIn>

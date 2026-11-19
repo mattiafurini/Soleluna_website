@@ -52,17 +52,29 @@ export function AboutSection() {
                 &ldquo;Credo fermamente che un trattamento estetico sia prima di tutto un momento di riconnessione con se stessi. Quando una cliente entra da Soleluna, la fretta rimane fuori dalla porta.&rdquo;
               </blockquote>
 
-              <div className="mt-5 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#dcc2a5] flex items-center justify-center font-serif font-bold text-[#4a392b] text-sm">
-                  AP
+              <div className="mt-6 pt-4 border-t border-[#dfcbba]/70 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#c9a77b] text-white flex items-center justify-center font-serif font-semibold text-xs shadow-2xs border border-white/80">
+                    AP
+                  </div>
+                  <div>
+                    <div className="font-serif font-semibold text-[#2b2523] text-sm">
+                      {SALON_INFO.owner}
+                    </div>
+                    <div className="text-xs text-[#7e6f65]">
+                      Estetista & Titolare Soleluna
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-serif font-semibold text-[#2b2523] text-sm">
-                    {SALON_INFO.owner}
-                  </div>
-                  <div className="text-xs text-[#7e6f65]">
-                    Estetista & Titolare Soleluna
-                  </div>
+
+                {/* Signature Stylization */}
+                <div className="select-none text-right">
+                  <span className="font-serif italic text-xl sm:text-2xl text-[#9c7545] tracking-wide block leading-none font-normal">
+                    Annalisa Pedone
+                  </span>
+                  <span className="text-[9px] uppercase tracking-widest text-[#a89587] font-medium">
+                    Firma Autografa
+                  </span>
                 </div>
               </div>
             </div>

@@ -85,6 +85,13 @@ export function ServicesSection() {
                   <p className="text-xs sm:text-sm text-[#665a52] leading-relaxed">
                     {service.description}
                   </p>
+
+                  {service.benefit && (
+                    <div className="mt-3.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#8a6839] bg-[#faf3ea] px-2.5 py-1 rounded-lg border border-[#edd8c4]">
+                      <Sparkles className="w-3 h-3 text-[#b38b59] shrink-0" />
+                      <span>{service.benefit}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-5 pt-4 border-t border-[#f2e7dc] flex items-center justify-between gap-3">
