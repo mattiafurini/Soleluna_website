@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { WhatsAppBookingBanner } from "@/components/WhatsAppBookingBanner";
 import { TrattamentiContent } from "./TrattamentiContent";
 
@@ -20,7 +19,6 @@ export default function TrattamentiPage() {
         <WhatsAppBookingBanner />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }

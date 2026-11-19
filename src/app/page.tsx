@@ -7,7 +7,6 @@ import { TrustSection } from "@/components/TrustSection";
 import { WhatsAppBookingBanner } from "@/components/WhatsAppBookingBanner";
 import { LocationSection } from "@/components/LocationSection";
 import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
         <LocationSection />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }
