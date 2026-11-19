@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { SALON_INFO } from "@/data/salon";
 import { MessageCircle, Phone, Sparkles, Shield, Heart, ArrowDown, Star, MapPin } from "lucide-react";
 import { motion } from "motion/react";
@@ -147,11 +148,72 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* Editorial Visual Centerpiece with Floating Glassmorphic Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 sm:mt-16 relative max-w-4xl mx-auto"
+        >
+          {/* Main frame */}
+          <div className="relative h-[280px] sm:h-[400px] md:h-[460px] rounded-[32px] sm:rounded-[44px] overflow-hidden border border-[#e8d7c6] shadow-xl group">
+            <Image
+              src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1400&q=85"
+              alt="Ambiente intimo e rilassante Soleluna a San Martino"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover object-center transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+            />
+            {/* Warm gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#241e1b]/70 via-transparent to-black/15" />
+
+            {/* Bottom title in frame */}
+            <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
+              <div>
+                <span className="text-[11px] uppercase tracking-widest text-[#e8cbb0] font-semibold block mb-1">
+                  Atmosfera Esclusiva • San Martino (FE)
+                </span>
+                <p className="font-serif text-2xl sm:text-3xl font-light tracking-wide drop-shadow-sm">
+                  La quiete che cercavi, ad ogni appuntamento.
+                </p>
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-medium text-white self-start sm:self-auto">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span>Ricevimento solo su appuntamento</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating Badge 1: Top Left */}
+          <div className="hidden md:flex absolute -top-5 -left-6 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#ebdccf] shadow-lg text-left">
+            <div className="w-9 h-9 rounded-xl bg-[#faf3eb] text-[#9c7545] flex items-center justify-center">
+              <Shield className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-[#2b2523]">Cabina Privata Singola</div>
+              <div className="text-[10px] text-[#7a6454]">Zero condivisione o attese</div>
+            </div>
+          </div>
+
+          {/* Floating Badge 2: Bottom Right */}
+          <div className="hidden md:flex absolute -bottom-5 -right-6 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#ebdccf] shadow-lg text-left">
+            <div className="w-9 h-9 rounded-xl bg-[#faf3eb] text-[#b38b59] flex items-center justify-center">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-[#2b2523]">Percorsi Su Misura</div>
+              <div className="text-[10px] text-[#7a6454]">Check-up cute sempre incluso</div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* 3 Pillars of Excellence - Elegant Highlight Strip */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="mt-14 sm:mt-18 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"
         >
           <div className="bg-white/90 backdrop-blur-xs border border-[#ede2d6] rounded-2xl p-6 text-left shadow-2xs hover:shadow-md transition-all hover:-translate-y-1 group">

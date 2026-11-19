@@ -1,37 +1,59 @@
 "use client";
 
-import { CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
 import { SALON_INFO } from "@/data/salon";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/MotionWrapper";
+import { FadeIn } from "@/components/ui/MotionWrapper";
 
 export function AboutSection() {
   return (
     <section id="chi-siamo" className="py-20 bg-white border-y border-[#ede2d6] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Atmospheric card / Presentation */}
-          <FadeIn direction="right" distance={30} className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] text-white flex items-center justify-center mb-6 shadow-sm">
-                <SolelunaLogoIcon className="w-8 h-8 text-white" />
+          {/* Left: Atmospheric photo + Philosophy card */}
+          <FadeIn direction="right" distance={30} className="lg:col-span-5 relative space-y-5">
+            {/* Treatment Photo Frame */}
+            <div className="relative h-64 sm:h-72 rounded-3xl overflow-hidden border border-[#e8d5c4] shadow-sm group">
+              <Image
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80"
+                alt="Trattamenti benessere e cura della cute Soleluna"
+                fill
+                sizes="(max-width: 1024px) 100vw, 440px"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#241e1b]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-5 right-5 text-white flex items-center justify-between">
+                <span className="text-xs font-medium tracking-wide">Cura della Cute & Benessere</span>
+                <span className="text-[11px] bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
+                  San Martino (FE)
+                </span>
+              </div>
+            </div>
+
+            {/* Philosophy Card */}
+            <div className="relative rounded-3xl p-7 sm:p-8 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] shadow-xs hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] text-white flex items-center justify-center shadow-xs">
+                  <SolelunaLogoIcon className="w-7 h-7 text-white" />
+                </div>
+                <span className="text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-white/70 px-3 py-1 rounded-full border border-[#ebdccf]">
+                  La Nostra Filosofia
+                </span>
               </div>
 
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#9c7545]">
-                La Nostra Filosofia
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#2b2523] mt-2 leading-snug">
+              <h3 className="font-serif text-xl sm:text-2xl text-[#2b2523] leading-snug">
                 Un’oasi di tranquillità alle porte di Ferrara.
               </h3>
 
-              <div className="my-6 border-t border-[#dfcbba]" />
+              <div className="my-4 border-t border-[#dfcbba]" />
 
-              <blockquote className="italic text-[#5e5148] text-sm sm:text-base leading-relaxed">
+              <blockquote className="italic text-[#5e5148] text-xs sm:text-sm leading-relaxed">
                 &ldquo;Credo fermamente che un trattamento estetico sia prima di tutto un momento di riconnessione con se stessi. Quando una cliente entra da Soleluna, la fretta rimane fuori dalla porta.&rdquo;
               </blockquote>
 
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#dcc2a5] flex items-center justify-center font-serif font-bold text-[#4a392b]">
+              <div className="mt-5 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#dcc2a5] flex items-center justify-center font-serif font-bold text-[#4a392b] text-sm">
                   AP
                 </div>
                 <div>

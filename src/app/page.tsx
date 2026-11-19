@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { AtmosphereSection } from "@/components/AtmosphereSection";
 import { TrustSection } from "@/components/TrustSection";
 import { WhatsAppBookingBanner } from "@/components/WhatsAppBookingBanner";
 import { LocationSection } from "@/components/LocationSection";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <ServicesSection />
+        <AtmosphereSection />
         <TrustSection />
         <WhatsAppBookingBanner />
         <LocationSection />

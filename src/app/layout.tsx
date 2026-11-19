@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SALON_INFO } from "@/data/salon";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const sansFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -97,10 +98,14 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="font-sans antialiased bg-[#faf8f5] text-[#2b2523] selection:bg-[#ecdccb] selection:text-[#523d24]"
+        className="font-sans antialiased bg-[#faf8f5] text-[#2b2523] selection:bg-[#ecdccb] selection:text-[#523d24] relative"
         suppressHydrationWarning
       >
-        {children}
+        <SmoothScroll>
+          {/* Subtle tactile paper texture overlay */}
+          <div className="fixed inset-0 pointer-events-none z-50 bg-grain mix-blend-multiply opacity-50" aria-hidden="true" />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

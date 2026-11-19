@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { SERVICES, SALON_INFO, ServiceItem } from "@/data/salon";
+import Image from "next/image";
+import { SERVICES, SALON_INFO, SERVICE_IMAGES, CATEGORY_FALLBACK_IMAGES, ServiceItem } from "@/data/salon";
 import { Clock, MessageCircle, Sparkles, ArrowRight } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/MotionWrapper";
 
@@ -26,29 +27,44 @@ export function ServicesSection() {
           </p>
         </FadeIn>
 
-        {/* Services Grid with Stagger (3 Top Treatments in a single balanced row on desktop) */}
+        {/* Services Grid with Stagger & Image Headers */}
         <StaggerContainer
           staggerChildren={0.12}
-          className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"
+          className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6"
         >
           {topServices.map((service: ServiceItem) => {
             const whatsappText = `Ciao Soleluna! ✨ Vorrei informazioni e disponibilità per il trattamento: "${service.name}".`;
             const whatsappUrl = `https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+            const imageUrl = SERVICE_IMAGES[service.id] || CATEGORY_FALLBACK_IMAGES[service.category];
 
             return (
               <StaggerItem
                 key={service.id}
-                className="bg-white rounded-2xl p-5 sm:p-6 border border-[#ede2d6] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-white rounded-3xl p-5 sm:p-6 border border-[#ede2d6] shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between group hover:-translate-y-1 overflow-hidden"
               >
                 <div>
+                  {/* Photo Header */}
+                  {imageUrl && (
+                    <div className="relative h-48 -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 mb-4 overflow-hidden bg-[#faf3eb]">
+                      <Image
+                        src={imageUrl}
+                        alt={service.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 360px"
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                      <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[10px] font-semibold text-[#8f6636] bg-white/95 backdrop-blur-md border border-[#ebdccf] px-2.5 py-0.5 rounded-full shadow-2xs">
+                        <Sparkles className="w-2.5 h-2.5 text-[#b38b59]" />
+                        Top
+                      </span>
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <h3 className="font-serif text-lg font-semibold text-[#2b2523] leading-snug group-hover:text-[#9c7545] transition-colors">
                       {service.name}
                     </h3>
-                    <span className="shrink-0 inline-flex items-center gap-1 text-[10px] font-semibold text-[#8f6636] bg-[#faf4ec] border border-[#ebdccf] px-2.5 py-0.5 rounded-full">
-                      <Sparkles className="w-2.5 h-2.5 text-[#b38b59]" />
-                      Top
-                    </span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#665a52] leading-relaxed">

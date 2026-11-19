@@ -1,16 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { SALON_INFO } from "@/data/salon";
-import { Phone, MapPin, Clock, Menu, X, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Menu, X, MessageCircle, ArrowRight } from "lucide-react";
 import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
+import { motion, AnimatePresence } from "motion/react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -25,8 +35,22 @@ export function Header() {
     }
   };
 
+  const navLinks = [
+    { label: "Chi Siamo", id: "chi-siamo" },
+    { label: "Trattamenti", href: "/trattamenti" },
+    { label: "Perché Noi", id: "perche-noi" },
+    { label: "Recensioni", id: "recensioni" },
+    { label: "Dove Siamo", id: "dove-siamo" },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 bg-[#faf8f5]/95 backdrop-blur-md border-b border-[#ebdcd0] transition-all">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#faf8f5]/90 backdrop-blur-xl border-b border-[#e5d5c5] shadow-xs"
+          : "bg-[#faf8f5]/95 backdrop-blur-md border-b border-[#ebdcd0]"
+      }`}
+    >
       {/* Top bar info */}
       <div className="bg-[#2b2523] text-[#f4ede4] text-xs py-2 px-4">
         <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
@@ -55,10 +79,14 @@ export function Header() {
       </div>
 
       {/* Main navigation */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <div
+        className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between transition-all duration-300 ${
+          scrolled ? "h-16 sm:h-18" : "h-20"
+        }`}
+      >
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
             <SolelunaLogoIcon className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -82,8 +110,9 @@ export function Header() {
           </a>
           <Link
             href="/trattamenti"
-            className={`transition-colors cursor-pointer ${pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
-              }`}
+            className={`transition-colors cursor-pointer ${
+              pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
+            }`}
           >
             Trattamenti
           </Link>
@@ -116,7 +145,7 @@ export function Header() {
             href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! Vorrei richiedere informazioni sulle disponibilità per un appuntamento.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-sm hover:shadow transition-all"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-xs hover:shadow transition-all hover:-translate-y-0.5"
           >
             <MessageCircle className="w-4 h-4 text-white" />
             Prenota su WhatsApp
@@ -126,78 +155,80 @@ export function Header() {
         {/* Mobile menu toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-[#2b2523] hover:bg-[#eeddcc]/50 transition-colors"
-          aria-label="Apri menu"
+          className="md:hidden p-2 rounded-xl text-[#2b2523] hover:bg-[#eeddcc]/50 transition-colors"
+          aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#ebdcd0] bg-[#faf8f5] px-6 py-6 space-y-4 shadow-xl">
-          <nav className="flex flex-col space-y-3 text-base font-medium text-[#4a403a]">
-            <a
-              href="#chi-siamo"
-              onClick={(e) => handleNavClick(e, "chi-siamo")}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
-            >
-              Chi Siamo
-            </a>
-            <Link
-              href="/trattamenti"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-1 border-b border-[#f0e4d8] cursor-pointer ${pathname === "/trattamenti" ? "text-[#b38b59] font-semibold" : "hover:text-[#b38b59]"
-                }`}
-            >
-              Trattamenti
-            </Link>
-            <a
-              href="#perche-noi"
-              onClick={(e) => handleNavClick(e, "perche-noi")}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
-            >
-              Perché Noi
-            </a>
-            <a
-              href="#recensioni"
-              onClick={(e) => handleNavClick(e, "recensioni")}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
-            >
-              Recensioni Clienti
-            </a>
-            <a
-              href="#dove-siamo"
-              onClick={(e) => handleNavClick(e, "dove-siamo")}
-              className="py-1 border-b border-[#f0e4d8] hover:text-[#b38b59] cursor-pointer"
-            >
-              Orari & Posizione
-            </a>
-          </nav>
+      {/* Animated Mobile Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden overflow-hidden border-t border-[#ebdcd0] bg-[#faf8f5]/98 backdrop-blur-2xl shadow-xl"
+          >
+            <div className="px-6 py-6 space-y-5">
+              <nav className="flex flex-col space-y-1">
+                {navLinks.map((item, idx) => {
+                  if (item.href) {
+                    return (
+                      <Link
+                        key={idx}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex items-center justify-between py-2.5 border-b border-[#f0e4d8] text-base font-medium transition-colors ${
+                          pathname === item.href ? "text-[#b38b59] font-semibold" : "text-[#4a403a]"
+                        }`}
+                      >
+                        <span>{item.label}</span>
+                        <ArrowRight className="w-4 h-4 text-[#b38b59]" />
+                      </Link>
+                    );
+                  }
 
-          <div className="pt-2 flex flex-col gap-2.5">
-            <a
-              href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! Vorrei richiedere disponibilità per un appuntamento.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold rounded-xl bg-[#128C7E] text-white shadow-sm"
-            >
-              <MessageCircle className="w-5 h-5 text-white" />
-              Prenota su WhatsApp
-            </a>
-            <a
-              href={`tel:${SALON_INFO.phone.replace(/\s+/g, '')}`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold rounded-xl border border-[#d8c8b8] text-[#2b2523] bg-white"
-            >
-              <Phone className="w-4 h-4 text-[#b38b59]" />
-              Chiama in Salone
-            </a>
-          </div>
-        </div>
-      )}
+                  return (
+                    <a
+                      key={idx}
+                      href={`#${item.id}`}
+                      onClick={(e) => handleNavClick(e, item.id!)}
+                      className="flex items-center justify-between py-2.5 border-b border-[#f0e4d8] text-base font-medium text-[#4a403a] hover:text-[#b38b59] transition-colors"
+                    >
+                      <span>{item.label}</span>
+                      <ArrowRight className="w-4 h-4 text-[#c4b1a1]" />
+                    </a>
+                  );
+                })}
+              </nav>
+
+              <div className="pt-2 flex flex-col gap-2.5">
+                <a
+                  href={`https://wa.me/${SALON_INFO.whatsappNumber}?text=${encodeURIComponent("Ciao Soleluna! Vorrei richiedere disponibilità per un appuntamento.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-semibold rounded-full bg-[#128C7E] text-white shadow-xs"
+                >
+                  <MessageCircle className="w-4 h-4 text-white" />
+                  Prenota via WhatsApp
+                </a>
+                <a
+                  href={`tel:${SALON_INFO.phone.replace(/\s+/g, '')}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold rounded-full border border-[#d8c8b8] text-[#2b2523] bg-white shadow-2xs"
+                >
+                  <Phone className="w-4 h-4 text-[#b38b59]" />
+                  Chiama in Salone: {SALON_INFO.phone}
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
-
