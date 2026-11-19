@@ -7,6 +7,7 @@ import { TrustSection } from "@/components/TrustSection";
 import { WhatsAppBookingBanner } from "@/components/WhatsAppBookingBanner";
 import { LocationSection } from "@/components/LocationSection";
 import { Footer } from "@/components/Footer";
+import { SectionDivider } from "@/components/SectionDivider";
 
 export default function Home() {
   return (
@@ -14,11 +15,17 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <SectionDivider />
         <AboutSection />
+        <SectionDivider />
         <ServicesSection />
+        <SectionDivider />
         <AtmosphereSection />
+        <SectionDivider />
         <TrustSection />
+        <SectionDivider />
         <WhatsAppBookingBanner />
+        <SectionDivider />
         <LocationSection />
       </main>
       <Footer />

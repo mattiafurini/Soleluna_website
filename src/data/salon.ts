@@ -234,18 +234,21 @@ export const TESTIMONIALS: TestimonialItem[] = [
   {
     name: "Noami Milan",
     badge: "Local Guide su Google",
+    treatment: "Trattamenti Viso & Coccole",
     quote: "Professionalità, competenza, disponibilità e gentilezza, sono quattro dei tanti aggettivi positivi del centro estetico Soleluna. Annalisa, la titolare del centro estetico, ti accoglie sempre con il sorriso, oltre a metterti subito a tuo agio per concederti piccoli momenti di vere coccole!",
     rating: 5,
   },
   {
     name: "Morena Gallerani",
     badge: "Local Guide su Google",
+    treatment: "Percorsi Corpo & Benessere",
     quote: "Una validissima professionista, una bellissima persona, due mani che fanno miracoli, fortunate le persone che hanno la fortuna di sperimentare i suoi trattamenti.",
     rating: 5,
   },
   {
     name: "Paola Montanari",
     badge: "Local Guide su Google",
+    treatment: "Massaggi Olistici",
     quote: "Bravissima estetista e non solo. Fantastici i massaggi.",
     rating: 5,
   },

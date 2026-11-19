@@ -15,6 +15,7 @@ import {
   Heart,
 } from "lucide-react";
 import { SolelunaLogoIcon } from "@/components/SolelunaLogoIcon";
+import { SalonStatusBadge } from "@/components/SalonStatusBadge";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -67,8 +68,7 @@ export function Header() {
                 <span>San Martino, Ferrara (FE)</span>
               </span>
               <span className="hidden md:flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#b38b59]" />
-                <span>Lun - Ven (Fino alle 19:30)</span>
+                <SalonStatusBadge className="text-[#f4ede4]" />
               </span>
             </div>
 

@@ -11,8 +11,8 @@ export function TrustSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <FadeIn className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-block text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
-            Riprova Sociale & Fiducia
+          <div className="inline-block text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
+            04 • Recensioni Verificate
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#2b2523]">
             Cosa dicono le nostre clienti
@@ -27,41 +27,61 @@ export function TrustSection() {
           staggerChildren={0.12}
           className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {TESTIMONIALS.map((t, idx) => (
-            <StaggerItem
-              key={idx}
-              className="bg-[#faf8f5] rounded-2xl p-6 sm:p-7 border border-[#ece0d4] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group hover:-translate-y-1"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex text-amber-400">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <Quote className="w-6 h-6 text-[#d8c5b2] group-hover:text-[#b38b59] transition-colors" />
+          {TESTIMONIALS.map((t, idx) => {
+            const initials = t.name
+              .split(" ")
+              .map((w) => w[0])
+              .join("")
+              .slice(0, 2);
+
+            return (
+              <StaggerItem
+                key={idx}
+                className="bg-[#faf8f5] rounded-3xl p-6 sm:p-7 border border-[#ece0d4] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between group relative overflow-hidden"
+              >
+                {/* Decorative watermark quote */}
+                <div
+                  className="absolute -top-3 -right-2 font-serif text-8xl text-[#ebdccf]/40 select-none pointer-events-none leading-none -z-0"
+                  aria-hidden="true"
+                >
+                  “
                 </div>
 
-                <p className="text-sm text-[#4d423b] leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-[#ede0d2] flex items-center justify-between">
-                <div>
-                  <div className="font-serif font-semibold text-sm text-[#2b2523]">
-                    {t.name}
+                <div className="relative z-10 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-amber-400">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-[#8c7e75] bg-white/80 px-2.5 py-0.5 rounded-full border border-[#e8dccf] font-medium">
+                      Google Maps
+                    </span>
                   </div>
-                  <div className="text-xs text-[#9c7545] font-medium">
-                    {t.badge || "Recensione Google"}
+
+                  <p className="text-sm text-[#4d423b] leading-relaxed italic">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                <div className="relative z-10 mt-6 pt-4 border-t border-[#ede0d2] flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#9c7545] to-[#c9a77b] text-white font-serif font-semibold text-xs flex items-center justify-center shadow-2xs shrink-0 border border-white/70">
+                    {initials}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="font-serif font-semibold text-sm text-[#2b2523] truncate">
+                      {t.name}
+                    </div>
+                    <div className="text-[11px] text-[#9c7545] font-medium flex items-center gap-1.5 truncate">
+                      <span>{t.treatment || "Percorso Benessere"}</span>
+                      <span className="text-[#d8c5b2]">•</span>
+                      <span className="text-[#8c7e75]">{t.badge || "Recensione Google"}</span>
+                    </div>
                   </div>
                 </div>
-                <span className="text-[11px] text-[#73655c] bg-[#f4ede4] px-2.5 py-0.5 rounded-full border border-[#e8dccf] font-medium">
-                  Google Maps
-                </span>
-              </div>
-            </StaggerItem>
-          ))}
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
 
         {/* Google rating banner under testimonials */}
@@ -85,8 +105,8 @@ export function TrustSection() {
         {/* Bento Grid: Perché Scegliere Soleluna */}
         <div id="perche-noi" className="mt-20 pt-16 border-t border-[#ede2d6] scroll-mt-20">
           <FadeIn className="text-center max-w-xl mx-auto mb-12 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
-              I Nostri Valori Fondamentali
+            <span className="text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
+              Garanzie Soleluna • I 5 Valori Fondamentali
             </span>
             <h3 className="font-serif text-3xl sm:text-4xl text-[#2b2523]">
               Il nostro impegno per la tua tranquillità

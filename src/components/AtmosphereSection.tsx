@@ -41,8 +41,8 @@ export function AtmosphereSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <FadeIn className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-block text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-white/80 px-3.5 py-1 rounded-full border border-[#ebdccf] shadow-2xs">
-            L&apos;Esperienza in Salone
+          <div className="inline-block text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-white/80 px-3.5 py-1 rounded-full border border-[#ebdccf] shadow-2xs">
+            03 • Atmosfera & Quiete
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#2b2523] leading-tight">
             Uno spazio pensato per far <span className="italic text-[#9c7545]">respirare</span> il tuo tempo.

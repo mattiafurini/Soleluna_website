@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SALON_INFO } from "@/data/salon";
 import { MessageCircle, Phone, Sparkles, Shield, Heart, ArrowDown, Star, MapPin } from "lucide-react";
 import { motion } from "motion/react";
+import { SalonStatusBadge } from "@/components/SalonStatusBadge";
 
 export function Hero() {
   const scrollToTrattamenti = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -36,13 +37,11 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-[#ebdccf] text-xs font-medium text-[#7a6454] shadow-2xs hover:border-[#d9c4b1] transition-colors"
+            className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-[#ebdccf] text-xs font-medium text-[#7a6454] shadow-2xs hover:border-[#d9c4b1] transition-colors"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
-            </span>
-            <span className="tracking-wide">Centro Estetico & Benessere a San Martino (FE)</span>
+            <SalonStatusBadge className="text-[#2b2523] font-semibold" />
+            <span className="text-[#d8c5b2] hidden sm:inline">•</span>
+            <span className="tracking-wide text-[#7a6454]">San Martino, Ferrara (FE)</span>
           </motion.div>
 
           {/* Main editorial heading */}

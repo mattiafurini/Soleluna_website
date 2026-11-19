@@ -19,6 +19,14 @@ const CATEGORIES: { key: CategoryFilter; label: string }[] = [
   { key: "mani-piedi", label: "Mani & Piedi" },
 ];
 
+const CATEGORY_LABELS: Record<string, string> = {
+  viso: "Rituale Viso",
+  corpo: "Cura Corpo",
+  massaggi: "Massaggio Olistico",
+  epilazione: "Epilazione",
+  "mani-piedi": "Mani & Piedi Spa",
+};
+
 export function TrattamentiContent() {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -187,7 +195,7 @@ export function TrattamentiContent() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3 }}
                       key={service.id}
-                      className="bg-white rounded-3xl p-5 sm:p-6 border border-[#ede2d6] shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between group hover:-translate-y-1 overflow-hidden"
+                      className="bg-white rounded-3xl p-5 sm:p-6 border border-[#ede2d6] shadow-2xs hover:shadow-lg transition-shadow flex flex-col justify-between group overflow-hidden"
                     >
                       <div>
                         {/* Image Header */}
@@ -201,6 +209,12 @@ export function TrattamentiContent() {
                               className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                            
+                            {/* Category Pill Tag */}
+                            <span className="absolute top-3 left-3 inline-flex items-center text-[10px] font-semibold tracking-wider uppercase text-[#735229] bg-white/95 backdrop-blur-md border border-[#ebdccf] px-2.5 py-0.5 rounded-full shadow-2xs">
+                              {CATEGORY_LABELS[service.category] || "Trattamento"}
+                            </span>
+
                             {service.popular && (
                               <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[10px] font-semibold text-[#8f6636] bg-white/95 backdrop-blur-md border border-[#ebdccf] px-2.5 py-0.5 rounded-full shadow-2xs">
                                 <Sparkles className="w-2.5 h-2.5 text-[#b38b59]" />
@@ -222,16 +236,21 @@ export function TrattamentiContent() {
                       </div>
 
                       <div className="mt-4 pt-3.5 border-t border-[#f2e7dc] flex items-center justify-between gap-3">
-                        <span className="flex items-center gap-1.5 text-xs text-[#7a6d64] font-medium">
-                          <Clock className="w-3.5 h-3.5 text-[#9c7545]" />
-                          <span>{service.duration}</span>
-                        </span>
+                        <div className="flex flex-col">
+                          <span className="flex items-center gap-1.5 text-xs text-[#7a6d64] font-medium">
+                            <Clock className="w-3.5 h-3.5 text-[#9c7545]" />
+                            <span>{service.duration}</span>
+                          </span>
+                          <span className="text-[10px] text-[#9c897d] font-normal">
+                            Cabina riservata
+                          </span>
+                        </div>
 
                         <a
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 py-2 px-3.5 text-xs font-semibold rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-2xs hover:shadow transition-all shrink-0 group-hover:scale-[1.02]"
+                          className="inline-flex items-center gap-1.5 py-2 px-3.5 text-xs font-semibold rounded-full bg-[#128C7E] hover:bg-[#0c6b60] text-white shadow-2xs hover:shadow transition-all shrink-0"
                         >
                           <MessageCircle className="w-3.5 h-3.5 text-white" />
                           <span>Info & Prenota</span>

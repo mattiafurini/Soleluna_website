@@ -10,8 +10,8 @@ export function LocationSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <FadeIn className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-          <div className="inline-block text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
-            Posizione & Orari
+          <div className="inline-block text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
+            06 • Posizione & Orari
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#2b2523]">
             Vieni a trovarci a San Martino

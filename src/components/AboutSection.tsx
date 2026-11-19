@@ -73,8 +73,8 @@ export function AboutSection() {
 
           {/* Right: Detailed text & principles */}
           <FadeIn delay={0.15} className="lg:col-span-7 space-y-6">
-            <div className="inline-block text-xs uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
-              Chi Siamo
+            <div className="inline-block text-[11px] uppercase tracking-widest font-semibold text-[#9c7545] bg-[#faf3eb] px-3.5 py-1 rounded-full border border-[#edd7c4]">
+              01 • Chi Siamo & Filosofia
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2b2523] leading-tight">
