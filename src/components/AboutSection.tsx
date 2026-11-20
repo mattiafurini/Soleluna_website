@@ -32,7 +32,7 @@ export function AboutSection() {
             </div>
 
             {/* Philosophy Card */}
-            <div className="relative rounded-3xl p-7 sm:p-8 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] shadow-xs hover:shadow-md transition-shadow">
+            <div className="relative rounded-3xl p-7 sm:p-8 bg-gradient-to-br from-[#faf4ee] to-[#f2e6d9] border border-[#e8d5c4] ring-1 ring-[#b38b59]/20 shadow-xs hover:shadow-md transition-shadow">
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#9c7545] to-[#d8b88d] text-white flex items-center justify-center shadow-xs">
                   <SolelunaLogoIcon className="w-7 h-7 text-white" />

@@ -43,3 +43,19 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #b38b59;
 }
+
+/* Quiet Luxury micro-reflections & gentle shadows */
+.card-luxury {
+  box-shadow: 0 4px 20px -2px rgba(156, 117, 69, 0.05), 0 2px 6px -1px rgba(43, 37, 35, 0.03);
+  border: 1px solid #ebdccf;
+  outline: 1px solid rgba(179, 139, 89, 0.12);
+}
+
+.card-luxury-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury-hover:hover {
+  outline-color: rgba(179, 139, 89, 0.35);
+  box-shadow: 0 8px 28px -4px rgba(156, 117, 69, 0.09), 0 4px 10px -2px rgba(43, 37, 35, 0.04);
+}

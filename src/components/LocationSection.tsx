@@ -35,7 +35,7 @@ export function LocationSection() {
           {/* Left: Contact Info & Opening Hours (5 cols) */}
           <FadeIn className="lg:col-span-5 space-y-6">
             {/* Address Box */}
-            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] space-y-4 shadow-2xs hover:shadow-xs transition-shadow">
+            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] ring-1 ring-[#b38b59]/15 space-y-4 shadow-2xs hover:shadow-xs transition-shadow">
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-[#b38b59] text-white flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
@@ -67,7 +67,7 @@ export function LocationSection() {
             </div>
 
             {/* Direct Contacts Box */}
-            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] space-y-3.5 shadow-2xs">
+            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] ring-1 ring-[#b38b59]/15 space-y-3.5 shadow-2xs">
               <h3 className="font-serif font-semibold text-base text-[#2b2523]">Contatti Diretti</h3>
 
               <div className="flex items-center gap-3 text-sm text-[#594d45]">
@@ -88,7 +88,7 @@ export function LocationSection() {
             </div>
 
             {/* Opening Hours Table with Today Highlight */}
-            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] space-y-4 shadow-2xs">
+            <div className="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece0d4] ring-1 ring-[#b38b59]/15 space-y-4 shadow-2xs">
               <div className="flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-[#ebdcd0]">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-[#9c7545]" />

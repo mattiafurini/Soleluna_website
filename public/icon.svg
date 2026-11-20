@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+  <defs>
+    <linearGradient id="solelunaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9c7545" />
+      <stop offset="100%" stop-color="#d8b88d" />
+    </linearGradient>
+  </defs>
+  {/* Rounded brand badge */}
+  <rect width="36" height="36" rx="18" fill="url(#solelunaGold)" />
+  
+  {/* Heavenly emblem: Crescent Moon & Sun */}
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    {/* Crescent Moon */}
+    <path d="M 18 6 A 12 12 0 0 0 18 30 A 7 12 0 0 1 18 6 Z" fill="#ffffff" fill-opacity="0.32" stroke-width="1.5" />
+    
+    {/* Sun Core */}
+    <circle cx="20" cy="18" r="3.8" fill="#ffffff" fill-opacity="0.45" stroke-width="1.5" />
+    
+    {/* Sun Rays */}
+    <line x1="20" y1="12.5" x2="20" y2="9.5" stroke-width="1.5" />
+    <line x1="22.8" y1="13" x2="24.8" y2="10.5" stroke-width="1.5" />
+    <line x1="24.5" y1="15.2" x2="27" y2="13.8" stroke-width="1.5" />
+    <line x1="25.5" y1="18" x2="28.5" y2="18" stroke-width="1.5" />
+    <line x1="24.5" y1="20.8" x2="27" y2="22.2" stroke-width="1.5" />
+    <line x1="22.8" y1="23" x2="24.8" y2="25.5" stroke-width="1.5" />
+    <line x1="20" y1="23.5" x2="20" y2="26.5" stroke-width="1.5" />
+    
+    {/* Subtle celestial dots */}
+    <circle cx="12" cy="14" r="0.8" fill="#ffffff" stroke="none" />
+    <circle cx="11.5" cy="21.5" r="0.6" fill="#ffffff" stroke="none" />
+  </g>
+</svg>

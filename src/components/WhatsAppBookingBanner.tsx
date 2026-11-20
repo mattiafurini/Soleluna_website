@@ -13,9 +13,9 @@ export function WhatsAppBookingBanner() {
   return (
     <section id="prenota" className="py-20 bg-gradient-to-b from-[#faf8f5] to-[#f4eee7] scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <FadeIn className="relative p-2 sm:p-3 rounded-[36px] bg-gradient-to-b from-[#f7efe6] to-[#eddccf] border border-[#e2d0bf] shadow-md">
+        <FadeIn className="relative p-2 sm:p-3 rounded-[36px] bg-gradient-to-b from-[#f7efe6] to-[#eddccf] border border-[#e2d0bf] ring-1 ring-[#b38b59]/20 shadow-lg">
           {/* Inner luxury invitation card */}
-          <div className="relative overflow-hidden bg-white rounded-[28px] sm:rounded-[30px] p-7 sm:p-12 border border-[#f0e4d7] text-center space-y-6">
+          <div className="relative overflow-hidden bg-white rounded-[28px] sm:rounded-[30px] p-7 sm:p-12 border border-[#f0e4d7] ring-1 ring-[#b38b59]/10 text-center space-y-6">
             {/* Subtle glow background */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-[#ebdccf]/30 rounded-full blur-3xl pointer-events-none -z-0" />
             <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-50/50 rounded-full blur-3xl pointer-events-none -z-0" />

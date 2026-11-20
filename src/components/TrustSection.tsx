@@ -37,7 +37,7 @@ export function TrustSection() {
             return (
               <StaggerItem
                 key={idx}
-                className="bg-[#faf8f5] rounded-3xl p-6 sm:p-7 border border-[#ece0d4] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between group relative overflow-hidden"
+                className="bg-[#faf8f5] rounded-3xl p-6 sm:p-7 border border-[#ece0d4] ring-1 ring-[#b38b59]/15 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Decorative watermark quote */}
                 <div
@@ -121,7 +121,7 @@ export function TrustSection() {
             className="grid grid-cols-1 md:grid-cols-12 gap-5"
           >
             {/* Bento Item 1 (Large - 7 cols): Privacy & Tempo Dedicato */}
-            <StaggerItem className="md:col-span-7 rounded-3xl p-7 sm:p-9 bg-gradient-to-br from-[#faf4ee] via-[#f7eee4] to-[#f0e3d5] border border-[#e8d5c4] shadow-xs relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <StaggerItem className="md:col-span-7 rounded-3xl p-7 sm:p-9 bg-gradient-to-br from-[#faf4ee] via-[#f7eee4] to-[#f0e3d5] border border-[#e8d5c4] ring-1 ring-[#b38b59]/20 shadow-xs relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
               <div className="relative z-10 space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-[#9c7545] bg-white/70 px-3 py-1 rounded-full border border-[#e5d2c2]">
@@ -152,7 +152,7 @@ export function TrustSection() {
             </StaggerItem>
 
             {/* Bento Item 2 (5 cols): Igiene Ospedaliera */}
-            <StaggerItem className="md:col-span-5 rounded-3xl p-7 sm:p-9 bg-white border border-[#ede2d6] shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <StaggerItem className="md:col-span-5 rounded-3xl p-7 sm:p-9 bg-white border border-[#ede2d6] ring-1 ring-[#b38b59]/15 shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/60">
@@ -181,7 +181,7 @@ export function TrustSection() {
             </StaggerItem>
 
             {/* Bento Item 3 (4 cols): Cosmetici Attivi */}
-            <StaggerItem className="md:col-span-4 rounded-3xl p-6 sm:p-7 bg-white border border-[#ede2d6] shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <StaggerItem className="md:col-span-4 rounded-3xl p-6 sm:p-7 bg-white border border-[#ede2d6] ring-1 ring-[#b38b59]/15 shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
               <div className="space-y-3.5">
                 <span className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider font-semibold text-[#9c7545] bg-[#faf3eb] px-2.5 py-0.5 rounded-full border border-[#edd7c4]">
                   <Sparkles className="w-3 h-3 text-[#b38b59]" />
@@ -203,7 +203,7 @@ export function TrustSection() {
             </StaggerItem>
 
             {/* Bento Item 4 (4 cols): Consulenza Onesta */}
-            <StaggerItem className="md:col-span-4 rounded-3xl p-6 sm:p-7 bg-white border border-[#ede2d6] shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <StaggerItem className="md:col-span-4 rounded-3xl p-6 sm:p-7 bg-white border border-[#ede2d6] ring-1 ring-[#b38b59]/15 shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
               <div className="space-y-3.5">
                 <span className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider font-semibold text-[#9c7545] bg-[#faf3eb] px-2.5 py-0.5 rounded-full border border-[#edd7c4]">
                   <CheckCircle2 className="w-3 h-3 text-[#b38b59]" />
@@ -225,7 +225,7 @@ export function TrustSection() {
             </StaggerItem>
 
             {/* Bento Item 5 (4 cols): Parcheggio & Posizione */}
-            <StaggerItem className="md:col-span-4 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-[#faf8f5] to-[#f4ede4] border border-[#ebdccf] shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <StaggerItem className="md:col-span-4 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-[#faf8f5] to-[#f4ede4] border border-[#ebdccf] ring-1 ring-[#b38b59]/15 shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
               <div className="space-y-3.5">
                 <span className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
                   <Car className="w-3 h-3 text-emerald-600" />

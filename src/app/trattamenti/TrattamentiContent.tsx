@@ -401,7 +401,7 @@ export function TrattamentiContent() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3 }}
                       key={service.id}
-                      className="bg-white rounded-3xl p-5 sm:p-6 border border-[#ede2d6] shadow-2xs hover:shadow-lg transition-shadow flex flex-col justify-between group overflow-hidden"
+                      className="bg-white rounded-3xl p-5 sm:p-6 border border-[#ede2d6] ring-1 ring-[#b38b59]/15 hover:ring-[#b38b59]/35 shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between group overflow-hidden"
                     >
                       <div>
                         {/* Image Header */}
