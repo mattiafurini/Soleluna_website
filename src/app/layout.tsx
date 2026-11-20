@@ -39,8 +39,13 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon.svg",
+    icon: [
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -96,6 +101,9 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${sansFont.variable} ${serifFont.variable}`} suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/icon.svg?v=2" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
